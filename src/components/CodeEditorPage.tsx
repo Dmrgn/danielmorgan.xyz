@@ -29,7 +29,7 @@ export default function CodeEditorPage() {
         language: "md",
         isDirty: false,
     }])
-    const [activeTab, setActiveTab] = useState<string>(tabs[0].id)
+    const [activeTab, setActiveTab] = useState<string>(tabs[0]?.id)
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     const handleFileSelect = (path: string) => {
