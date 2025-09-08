@@ -241,6 +241,19 @@
         "year_created": 2023
     },
     {
+        "name": "thundr.ca",
+        "description": "A full stack SaaS which automates the creation, sale, and maintenance of websites for construction & home service businesses.",
+        "technologies": [
+            "Vue",
+            "TypeScript",
+            "CSS",
+            "Shell"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Infrascan",
+        "project_link": "https://thundr.ca?utm_source=portfolio",
+        "year_created": 2025
+    },
+    {
         "name": "Log",
         "description": "A simple interpreted stack-based programming language written in elixir.",
         "technologies": [

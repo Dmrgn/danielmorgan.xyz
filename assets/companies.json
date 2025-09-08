@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "Boost AI",
+        "projects": [
+            "thundr",
+            "Infrascan",
+            "thundr-Models",
+            "PostWorthy",
+            "Exam-Buster",
+            "EEG-Tickle-Detection",
+            "Machine-Learning-BattleSnake-Tools",
+            "Evolutionary-Network",
+            "Ants-Simulation",
+            "neuroblock"
+        ]
+    }
+]
