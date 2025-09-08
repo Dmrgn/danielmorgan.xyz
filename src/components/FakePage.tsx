@@ -9,47 +9,16 @@ import { ErrorCard } from "./ErrorCard";
 import { LanguageChart } from "./LanguageChart";
 
 import { motion } from "motion/react"
-import { useRef, useState } from "react";
+import type { CrashData } from "@/App";
 
-const crashMessages = [
-    {
-        title: "Dynamic Memory Allocation Failed.",
-        message: "An error occured while loading a summary of Daniel's achievements.",
-        details: "Crash: attempt to allocate 1 petabyte caused memory limit exception."
-    },
-    {
-        title: "Syntax Error.",
-        message: "In file /home/daniel/Desktop/Coding/portfolio:",
-        details: "Unknown keyword or token 'Button*':\n// I'm going to write this part of the code in C!\n Button* button = (Button*) malloc(sizeof Button);"
-    },
-    {
-        title: "Runtime Assertion Failed.",
-        message: "Comparison failed between false expression and true.",
-        details: "assert 'Daniel is bad at coding.'"
-    },
-    {
-        title: "Uncaught Runtime Error",
-        message: "The current browser does not support the Web Elevator API, as it lacks elevated privileges.",
-        details: "// use the user's elevator (the stairs are broken) \n const elevator = new Elevator();"
-    },
-    {
-        title: "Cast to Union Type Failed.",
-        message: "Casting to a union type has caused the thread to strike pending demands of reduced compute time.",
-        details: "const v = (IntFloatUnion) 10.2;"
-    }
-];
-type CrashData = typeof crashMessages[number];
+type FakePageProps = {
+    crashData: CrashData,
+    hasCrashed: boolean,
+    onFakeCrash: ()=>void,
+    onViewCode: ()=>void
+};
 
-export function FakePage() {
-
-    const [crashData, setCrashData] = useState<CrashData>(null);
-    const hasCrashed = useRef<boolean>(false);
-
-    function fakeCrashPage() {
-        if (hasCrashed.current) return;
-        hasCrashed.current = true;
-        setCrashData(crashMessages[Math.floor(Math.random() * crashMessages.length)]);
-    }
+export function FakePage({crashData, hasCrashed, onFakeCrash, onViewCode} : FakePageProps) {
 
     return (
         <div className="w-[99vw] flex flex-col items-center overflow-x-hidden px-8">
@@ -61,7 +30,7 @@ export function FakePage() {
                         title={crashData.title}
                         message={crashData.message}
                         details={crashData.details}
-                        onContinue={()=>console.log("here")}
+                        onContinue={onViewCode}
                         variant="error"
                     />
                 </div>
@@ -125,7 +94,7 @@ export function FakePage() {
                     <h2 className="mb-8 text-5xl text-white text-shadow-2xl" style={{ fontFamily: 'Freckle Face' }}>What Does Daniel do?</h2>
                 </ScrollWrapper>
                 <div className="grid md:grid-cols-2 gap-8 font-bold w-full">
-                    <ScrollWrapper onAnimationEnd={fakeCrashPage} className="w-full h-full">
+                    <ScrollWrapper onAnimationEnd={onFakeCrash} className="w-full h-full">
                         <LanguageChart />
                     </ScrollWrapper>
                     <div>
