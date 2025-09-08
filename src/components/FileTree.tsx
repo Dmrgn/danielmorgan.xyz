@@ -26,7 +26,7 @@ const FileTreeNode = ({
     onFileSelect: (path: string) => void
     selectedFile?: string
 }) => {
-    const [isExpanded, setIsExpanded] = useState(level < 2)
+    const [isExpanded, setIsExpanded] = useState(false)
     const isSelected = selectedFile === node.path
 
     const handleClick = () => {
@@ -42,8 +42,8 @@ const FileTreeNode = ({
             <div
                 className={cn(
                     "flex items-center gap-1 px-2 py-1 text-sm cursor-pointer hover:bg-sidebar-accent rounded-sm transition-colors",
-                    isSelected && "bg-sidebar-primary text-sidebar-primary-foreground",
-                    !isSelected && "text-sidebar-foreground hover:text-sidebar-accent-foreground",
+                    isSelected && "bg-sidebar-primary text-sidebar-primary-foreground hover:bg-sidebar-primary",
+                    !isSelected && "text-sidebar-foreground hover:text-sidebar-accent-foreground hover:bg-white",
                 )}
                 style={{ paddingLeft: `${level * 12 + 8}px` }}
                 onClick={handleClick}

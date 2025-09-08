@@ -1,0 +1,486 @@
+[
+    {
+        "name": "Advent-of-Code-22",
+        "description": "Solutions to Advent of Code 2022",
+        "technologies": [
+            "CoffeeScript",
+            "C",
+            "Python"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Advent-of-Code-22",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "Ants-Simulation",
+        "description": "Ant colony simulation written in raw JavaScript",
+        "technologies": [
+            "JavaScript",
+            "HTML",
+            "CSS"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Ants-Simulation",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "Baron-Berkelys",
+        "description": "The game I created for my grade 9 final project.",
+        "technologies": [
+            "Java",
+            "Processing",
+            "GLSL"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Baron-Berkelys",
+        "project_link": null,
+        "year_created": 2021
+    },
+    {
+        "name": "Brain-Parser",
+        "description": "A modified Brain**** interpreter written in Java",
+        "technologies": [
+            "Java"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Brain-Parser",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "C-Flappy-Bird",
+        "description": "No description provided",
+        "technologies": [
+            "C"
+        ],
+        "repo_link": "https://github.com/Dmrgn/C-Flappy-Bird",
+        "project_link": null,
+        "year_created": 2025
+    },
+    {
+        "name": "C3-Snake",
+        "description": "No description provided",
+        "technologies": [],
+        "repo_link": "https://github.com/Dmrgn/C3-Snake",
+        "project_link": null,
+        "year_created": 2025
+    },
+    {
+        "name": "Caged",
+        "description": "No description provided",
+        "technologies": [
+            "Java",
+            "Python"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Caged",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "CellTeacher",
+        "description": "LyonHacks II",
+        "technologies": [
+            "JavaScript",
+            "HTML",
+            "Pug",
+            "CSS"
+        ],
+        "repo_link": "https://github.com/Dmrgn/CellTeacher",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "danielmorgan.xyz",
+        "description": "The home of my portfolio website.",
+        "technologies": [
+            "Vue",
+            "HTML",
+            "SCSS",
+            "JavaScript"
+        ],
+        "repo_link": "https://github.com/Dmrgn/danielmorgan.xyz",
+        "project_link": "https://www.danielmorgan.xyz",
+        "year_created": 2022
+    },
+    {
+        "name": "Discord-Status-Changer",
+        "description": "No description provided",
+        "technologies": [
+            "JavaScript",
+            "Python"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Discord-Status-Changer",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "Dmrgn",
+        "description": "Config files for my GitHub profile.",
+        "technologies": [],
+        "repo_link": "https://github.com/Dmrgn/Dmrgn",
+        "project_link": "https://github.com/Dmrgn",
+        "year_created": 2021
+    },
+    {
+        "name": "Drag-Tracker",
+        "description": "A simple webpage to track your drag clicking speed",
+        "technologies": [
+            "CSS",
+            "JavaScript",
+            "HTML"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Drag-Tracker",
+        "project_link": null,
+        "year_created": 2021
+    },
+    {
+        "name": "EEG-Tickle-Detection",
+        "description": "Using brain-computer interfaces to detect tickling and stop medical failures.",
+        "technologies": [
+            "Jupyter Notebook",
+            "Vue",
+            "Python",
+            "JavaScript",
+            "HTML",
+            "CSS"
+        ],
+        "repo_link": "https://github.com/Dmrgn/EEG-Tickle-Detection",
+        "project_link": "https://ticklesense.danielmorgan.xyz/",
+        "year_created": 2024
+    },
+    {
+        "name": "Evolutionary-Network",
+        "description": "Simple feed-forward back propagation neutral network written in Zig.",
+        "technologies": [
+            "Zig"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Evolutionary-Network",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "Evolutionary-Snake",
+        "description": "An evolutionary algorithm to develop neural networks to play the classic game of snake.",
+        "technologies": [
+            "JavaScript"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Evolutionary-Snake",
+        "project_link": null,
+        "year_created": 2023
+    },
+    {
+        "name": "Exam-Buster",
+        "description": "A hackathon project to help students prepare for an exam.",
+        "technologies": [
+            "TypeScript",
+            "JavaScript",
+            "CSS",
+            "HTML"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Exam-Buster",
+        "project_link": "https://exambuster.danielmorgan.xyz/",
+        "year_created": 2025
+    },
+    {
+        "name": "fcpl",
+        "description": "A small functional programming language which transpiles to JavaScript",
+        "technologies": [
+            "JavaScript"
+        ],
+        "repo_link": "https://github.com/Dmrgn/fcpl",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "Fundi",
+        "description": "CSC207",
+        "technologies": [
+            "Java"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Fundi",
+        "project_link": null,
+        "year_created": 2025
+    },
+    {
+        "name": "Gerald",
+        "description": "A chrome web extension which overrides the default new tab page with a productive set of tools for everyday web browsing.",
+        "technologies": [
+            "Vue",
+            "TypeScript",
+            "HTML",
+            "JavaScript",
+            "CSS"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Gerald",
+        "project_link": null,
+        "year_created": 2023
+    },
+    {
+        "name": "Grinch-Simulator",
+        "description": "Submission to MCPT's 2022 winter game jam",
+        "technologies": [
+            "Zig",
+            "Shell"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Grinch-Simulator",
+        "project_link": "https://grinchsimulator.danielmorgan.xyz",
+        "year_created": 2022
+    },
+    {
+        "name": "Infrascan",
+        "description": "Software for analyzing the community landscape in a neighbourhood.",
+        "technologies": [
+            "Vue",
+            "Python",
+            "Jupyter Notebook",
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "Shell"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Infrascan",
+        "project_link": null,
+        "year_created": 2023
+    },
+    {
+        "name": "Log",
+        "description": "A simple interpreted stack-based programming language written in elixir.",
+        "technologies": [
+            "Elixir"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Log",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "Machine-Learning-BattleSnake-Tools",
+        "description": "4 Python tools for creating tensorflow neural networks to play BattleSnake.",
+        "technologies": [
+            "Python"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Machine-Learning-BattleSnake-Tools",
+        "project_link": null,
+        "year_created": 2023
+    },
+    {
+        "name": "MCPTJam2021",
+        "description": "Submission to MCPT's 2021 winter game jam",
+        "technologies": [
+            "JavaScript",
+            "HTML",
+            "GLSL",
+            "CSS"
+        ],
+        "repo_link": "https://github.com/Dmrgn/MCPTJam2021",
+        "project_link": null,
+        "year_created": 2021
+    },
+    {
+        "name": "neuroblock",
+        "description": "Use visual programming to make brain computer interface (BCI) programs.",
+        "technologies": [
+            "JavaScript",
+            "TypeScript",
+            "CSS",
+            "HTML",
+            "Python"
+        ],
+        "repo_link": "https://github.com/Dmrgn/neuroblock",
+        "project_link": null,
+        "year_created": 2025
+    },
+    {
+        "name": "NLP-Data",
+        "description": "No description provided",
+        "technologies": [],
+        "repo_link": "https://github.com/Dmrgn/NLP-Data",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "Odin-Snake",
+        "description": "No description provided",
+        "technologies": [
+            "Odin"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Odin-Snake",
+        "project_link": null,
+        "year_created": 2025
+    },
+    {
+        "name": "Perceptron-Library",
+        "description": "A multi-layer perceptron library written in JavaScript",
+        "technologies": [
+            "JavaScript"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Perceptron-Library",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "Pike-Snake",
+        "description": "Implementation of snake in pike",
+        "technologies": [
+            "Pike"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Pike-Snake",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "Plant-Nutrient-Simulator",
+        "description": "Demonstrating concentration changes in plant root cells.",
+        "technologies": [
+            "JavaScript",
+            "HTML"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Plant-Nutrient-Simulator",
+        "project_link": null,
+        "year_created": 2024
+    },
+    {
+        "name": "PostWorthy",
+        "description": "No description provided",
+        "technologies": [
+            "TypeScript",
+            "CSS",
+            "HTML"
+        ],
+        "repo_link": "https://github.com/Dmrgn/PostWorthy",
+        "project_link": null,
+        "year_created": 2025
+    },
+    {
+        "name": "Pour",
+        "description": "A game created for Trijam 97",
+        "technologies": [
+            "JavaScript",
+            "HTML"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Pour",
+        "project_link": null,
+        "year_created": 2021
+    },
+    {
+        "name": "Python-Wordle-Bot",
+        "description": "A python bot for the popular word game Wordle",
+        "technologies": [
+            "Python"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Python-Wordle-Bot",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "readytoprogram.xyz",
+        "description": "Documentation for Ready to Program",
+        "technologies": [
+            "MDX",
+            "Astro",
+            "JavaScript",
+            "CSS"
+        ],
+        "repo_link": "https://github.com/Dmrgn/readytoprogram.xyz",
+        "project_link": "https://readytoprogram.netlify.app/",
+        "year_created": 2022
+    },
+    {
+        "name": "Flip Drip",
+        "description": "Tinder for clothing. Find your style!",
+        "technologies": [
+            "HTML",
+            "Python",
+            "Vue",
+            "JavaScript",
+            "CSS"
+        ],
+        "repo_link": "https://github.com/Dmrgn/RythmHacks2023",
+        "project_link": null,
+        "year_created": 2023
+    },
+    {
+        "name": "Sadge-Button",
+        "description": "Click the button.",
+        "technologies": [
+            "Vue",
+            "JavaScript",
+            "HTML",
+            "SCSS"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Sadge-Button",
+        "project_link": "https://sadge.danielmorgan.xyz",
+        "year_created": 2022
+    },
+    {
+        "name": "SC22-BatchD-stereo-zombies",
+        "description": "Stereo Zombie's 2022 NLP project",
+        "technologies": [
+            "CSS",
+            "HTML",
+            "Python",
+            "JavaScript",
+            "Dockerfile",
+            "Shell"
+        ],
+        "repo_link": "https://github.com/Dmrgn/SC22-BatchD-stereo-zombies",
+        "project_link": "https://www.ai-camp.org",
+        "year_created": 2022
+    },
+    {
+        "name": "Space-Chase",
+        "description": "Submission to Ludum Dare 51",
+        "technologies": [
+            "Zig",
+            "Shell"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Space-Chase",
+        "project_link": "https://spacechase.danielmorgan.xyz",
+        "year_created": 2022
+    },
+    {
+        "name": "thundr-Models",
+        "description": "Website text & image classification using Tensorflow",
+        "technologies": [
+            "Jupyter Notebook",
+            "Python",
+            "TypeScript",
+            "JavaScript",
+            "HTML",
+            "Dockerfile"
+        ],
+        "repo_link": "https://github.com/Dmrgn/thundr-Models",
+        "project_link": "https://thundr.ca",
+        "year_created": 2025
+    },
+    {
+        "name": "Tic-Tac-Toe",
+        "description": "Tic Tac Toe",
+        "technologies": [
+            "JavaScript",
+            "HTML",
+            "CSS"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Tic-Tac-Toe",
+        "project_link": "https://tictactoe.danielmorgan.xyz",
+        "year_created": 2022
+    },
+    {
+        "name": "TimeZap",
+        "description": "VS Code extension that tracks the time you spend coding",
+        "technologies": [
+            "TypeScript",
+            "JavaScript"
+        ],
+        "repo_link": "https://github.com/Dmrgn/TimeZap",
+        "project_link": null,
+        "year_created": 2025
+    },
+    {
+        "name": "Towers-of-Hanoi",
+        "description": "No description provided",
+        "technologies": [
+            "JavaScript"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Towers-of-Hanoi",
+        "project_link": null,
+        "year_created": 2022
+    }
+]

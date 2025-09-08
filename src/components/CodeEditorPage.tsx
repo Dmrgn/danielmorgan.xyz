@@ -3,126 +3,34 @@
 import { useState } from "react"
 import { FileTree } from "./FileTree"
 import { CodeEditor } from "./CodeEditor"
+import { LoadingCard } from "./LoadingCard"
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable"
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarProvider } from "./ui/sidebar"
+import { Github, Linkedin, Mail, User } from "lucide-react"
+import ReadMe from "./files/Readme"
+import Projects from "./files/Projects"
+import { fileContents, files } from "./files/manifest"
 
-const sampleFiles = [
-    {
-        name: "src",
-        type: "folder" as const,
-        path: "src",
-        children: [
-            {
-                name: "components",
-                type: "folder" as const,
-                path: "src/components",
-                children: [
-                    { name: "Header.tsx", type: "file" as const, path: "src/components/Header.tsx" },
-                    { name: "Footer.tsx", type: "file" as const, path: "src/components/Footer.tsx" },
-                    { name: "Button.tsx", type: "file" as const, path: "src/components/Button.tsx" },
-                ],
-            },
-            {
-                name: "pages",
-                type: "folder" as const,
-                path: "src/pages",
-                children: [
-                    { name: "index.tsx", type: "file" as const, path: "src/pages/index.tsx" },
-                    { name: "about.tsx", type: "file" as const, path: "src/pages/about.tsx" },
-                ],
-            },
-            {
-                name: "styles",
-                type: "folder" as const,
-                path: "src/styles",
-                children: [
-                    { name: "globals.css", type: "file" as const, path: "src/styles/globals.css" },
-                    { name: "components.css", type: "file" as const, path: "src/styles/components.css" },
-                ],
-            },
-            { name: "App.tsx", type: "file" as const, path: "src/App.tsx" },
-            { name: "main.tsx", type: "file" as const, path: "src/main.tsx" },
-        ],
-    },
-    {
-        name: "public",
-        type: "folder" as const,
-        path: "public",
-        children: [
-            { name: "index.html", type: "file" as const, path: "public/index.html" },
-            { name: "favicon.ico", type: "file" as const, path: "public/favicon.ico" },
-        ],
-    },
-    { name: "package.json", type: "file" as const, path: "package.json" },
-    { name: "tsconfig.json", type: "file" as const, path: "tsconfig.json" },
-    { name: "README.md", type: "file" as const, path: "README.md" },
-]
-
-const fileContents: Record<string, string> = {
-    "src/App.tsx": `import React from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <main>
-        <h1>Welcome to React</h1>
-        <p>Start editing to see some magic happen!</p>
-      </main>
-      <Footer />
-    </div>
-  );
-}
-
-export default App;`,
-    "src/components/Header.tsx": `import React from 'react';
-
-const Header: React.FC = () => {
-  return (
-    <header className="header">
-      <nav>
-        <h1>My App</h1>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-        </ul>
-      </nav>
-    </header>
-  );
-};
-
-export default Header;`,
-"package.json": `{
-    "name": "my-react-app",
-    "version": "1.0.0",
-    "private": true,
-    "dependencies": {
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "typescript": "^4.9.5"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
-    }
-}`,
-}
-
-interface Tab {
+export interface Tab {
     id: string
     name: string
     path: string
-    content: string
+    content: React.ReactNode
     language: string
     isDirty: boolean
 }
 
 export default function CodeEditorPage() {
-    const [tabs, setTabs] = useState<Tab[]>([])
-    const [activeTab, setActiveTab] = useState<string>()
+    const [tabs, setTabs] = useState<Tab[]>([{
+        id: `tab-${Date.now()}`,
+        name: "README.md",
+        path: "README.md",
+        content: fileContents["README.md"],
+        language: "md",
+        isDirty: false,
+    }])
+    const [activeTab, setActiveTab] = useState<string>(tabs[0].id)
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     const handleFileSelect = (path: string) => {
         // Check if tab already exists
@@ -134,7 +42,7 @@ export default function CodeEditorPage() {
 
         // Create new tab
         const fileName = path.split("/").pop() || path
-        const content = fileContents[path] || `// Content for ${fileName}\n\n`
+        const content: React.ReactNode = fileContents[path] || <p>// Content for ${fileName}</p>
         const newTab: Tab = {
             id: `tab-${Date.now()}`,
             name: fileName,
@@ -166,29 +74,53 @@ export default function CodeEditorPage() {
         )
     }
 
+    function onLoadingFinished() {
+        setIsLoading(false);
+    }
+
     return (
         <div className="h-screen w-screen bg-background">
-            <ResizablePanelGroup direction="horizontal">
-                <ResizablePanel defaultSize={25} minSize={15} maxSize={40}>
-                    <div className="h-full bg-sidebar border-r border-sidebar-border">
-                        <FileTree
-                            files={sampleFiles}
-                            onFileSelect={handleFileSelect}
-                            selectedFile={tabs.find((tab) => tab.id === activeTab)?.path}
+            {isLoading && (
+                <div className="fixed top-0 left-0 w-screen h-screen overflow-clip bg-black/50 backdrop-blur-sm z-100 flex items-center justify-center">
+                    <LoadingCard onFinished={onLoadingFinished} />
+                </div>
+            )}
+            <div>
+                <SidebarProvider>
+                    <Sidebar variant="floating">
+                        <SidebarContent>
+                            <FileTree
+                                files={files}
+                                onFileSelect={handleFileSelect}
+                                selectedFile={tabs.find((tab) => tab.id === activeTab)?.path}
+                            />
+                        </SidebarContent>
+                        <SidebarFooter>
+                            <a href="mailto:me@danielmorgan.xyz" target="_blank" className="flex mx-2 mt-2 cursor-pointer hover:underline">
+                                <Mail className="mr-2" />
+                                me@danielmorgan.xyz
+                            </a>
+                            <a href="https://linkedin.danielmorgan.xyz" target="_blank" className="flex mx-2 mt-2 cursor-pointer hover:underline">
+                                <Linkedin className="mr-2" />
+                                Daniel Morgan
+                            </a>
+                            <a href="https://github.com/dmrgn" target="_blank" className="flex m-2 cursor-pointer hover:underline">
+                                <Github className="mr-2" />
+                                dmrgn/portfolio
+                            </a>
+                        </SidebarFooter>
+                    </Sidebar>
+                    <div className="w-full">
+                        <CodeEditor
+                            tabs={tabs}
+                            activeTab={activeTab}
+                            onTabChange={setActiveTab}
+                            onTabClose={handleTabClose}
+                            onContentChange={handleContentChange}
                         />
                     </div>
-                </ResizablePanel>
-                <ResizableHandle />
-                <ResizablePanel defaultSize={75}>
-                    <CodeEditor
-                        tabs={tabs}
-                        activeTab={activeTab}
-                        onTabChange={setActiveTab}
-                        onTabClose={handleTabClose}
-                        onContentChange={handleContentChange}
-                    />
-                </ResizablePanel>
-            </ResizablePanelGroup>
+                </SidebarProvider>
+            </div>
         </div>
     )
 }

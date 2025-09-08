@@ -1,14 +1,11 @@
 {
-  "name": "bun-react-template",
+  "name": "dmrgn-portfolio",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "main": "src/index.tsx",
-  "module": "src/index.tsx",
   "scripts": {
-    "dev": "bun --hot src/index.tsx",
-    "start": "NODE_ENV=production bun src/index.tsx",
-    "build": "bun run build.ts"
+    "dev": "bun ./src/index.html",
+    "build": "bun build ./src/index.html --minify --outdir=dist"
   },
   "dependencies": {
     "@fontsource/chewy": "^5.2.6",
@@ -16,10 +13,16 @@
     "@fontsource/rubik-spray-paint": "^5.2.6",
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^4.1.0",
+    "@mdx-js/react": "^3.1.1",
+    "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-label": "^2.1.2",
+    "@radix-ui/react-progress": "^1.1.7",
     "@radix-ui/react-select": "^2.1.6",
+    "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tooltip": "^1.2.8",
     "@tsparticles/react": "^3.0.0",
+    "@uiw/react-textarea-code-editor": "^3.1.1",
     "bun-plugin-tailwind": "^0.0.14",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -38,8 +41,9 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/bun": "latest",
     "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@types/bun": "latest"
+    "@types/react-dom": "^19"
   }
 }

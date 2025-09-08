@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
@@ -39,6 +40,7 @@
   --sidebar-accent-foreground: #0d47a1;
   --sidebar-border: #bbdefb;
   --sidebar-ring: #2196f3;
+  --sidebar: hsl(0 0% 98%);
 }
 
 .dark {
@@ -74,6 +76,7 @@
   --sidebar-accent-foreground: #ffffff;
   --sidebar-border: #1565c0;
   --sidebar-ring: #64b5f6;
+  --sidebar: hsl(240 5.9% 10%);
 }
 
 @theme inline {
@@ -145,4 +148,45 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.w-tc-editor {
+  /* base */
+  --color-bg: #1565c0;
+  /* your background */
+  --color-fg-default: #eaf4ff;
+  /* main text */
+  --color-canvas-subtle: #0f4aa3;
+  /* borders/inline bg */
+
+  /* essentials */
+  --color-prettylights-syntax-comment: #8caedd;
+  /* comments (soft, readable) */
+  --color-prettylights-syntax-entity-tag: #0edf49;
+  /* html/xml tags */
+  --color-prettylights-syntax-entity: #d088fa;
+  /* classes/types/functions */
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #25364e;
+  --color-prettylights-syntax-constant: #bde3ff;
+  /* numbers/consts */
+  --color-prettylights-syntax-string: #f1cd5f;
+  /* strings (warm pop vs blue) */
+  --color-prettylights-syntax-keyword: #ff401f;
+  /* keywords/control flow */
+  --color-prettylights-syntax-markup-bold: #498ac0;
+  /* bold text */
+
+  /* helpful extras (optional) */
+  --color-prettylights-syntax-variable: #ffe1f0;
+  --color-prettylights-syntax-property: #c8ffe1;
+  --color-prettylights-syntax-operator: #ffd7b3;
+  --color-prettylights-syntax-function: #e6d0ff;
+  --color-prettylights-syntax-regexp: #c8fff0;
+  --color-prettylights-syntax-punctuation: #d7e9ff;
+
+  /* ui bits */
+  --code-selection-bg: #ffffff33;
+  --code-caret: #ffffff;
+  --code-line-highlight: #ffffff14;
+  --code-border: #0b3a86;
 }

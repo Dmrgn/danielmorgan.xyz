@@ -18,7 +18,7 @@ import {
     ChartTooltipContent,
 } from "@/components/ui/chart"
 
-import rawData from "../../assets/dmrgn.json";
+import rawData from "../../assets/languages.json";
 const languageMap = (Object.values(rawData) as Record<string, number>[]).reduce((acc: Record<string, number>, x: Record<string, number>)=>{
     const languageData = Object.entries(x);
     for (const entry of languageData) {

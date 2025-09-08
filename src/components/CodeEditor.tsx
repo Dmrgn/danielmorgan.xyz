@@ -1,18 +1,13 @@
 "use client"
 
+import rehypePrism from 'rehype-prism-plus';
 import { useState } from "react"
 import { X, Play, Save, Settings, File } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-
-interface Tab {
-    id: string
-    name: string
-    path: string
-    content: string
-    language: string
-    isDirty: boolean
-}
+import { SidebarTrigger } from "./ui/sidebar"
+import type { Tab } from "./CodeEditorPage"
+import { default as TextAreaHighlighted } from '@uiw/react-textarea-code-editor';
 
 interface CodeEditorProps {
     tabs: Tab[]
@@ -44,25 +39,6 @@ const getLanguageFromPath = (path: string): string => {
     }
 }
 
-const syntaxHighlight = (code: string, language: string): string => {
-    // Simple syntax highlighting for demo purposes
-    let highlighted = code
-
-    if (language === "javascript" || language === "typescript") {
-        highlighted = highlighted
-            .replace(
-                /\b(const|let|var|function|return|if|else|for|while|class|import|export|from|default)\b/g,
-                '<span class="text-blue-400">$1</span>',
-            )
-            .replace(/\b(true|false|null|undefined)\b/g, '<span class="text-orange-400">$1</span>')
-            .replace(/"([^"]*)"/g, '<span class="text-green-400">"$1"</span>')
-            .replace(/'([^']*)'/g, "<span class=\"text-green-400\">'$1'</span>")
-            .replace(/\/\/.*$/gm, '<span class="text-gray-500">$&</span>')
-    }
-
-    return highlighted
-}
-
 export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContentChange }: CodeEditorProps) {
     const [content, setContent] = useState<Record<string, string>>({})
 
@@ -78,16 +54,17 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
     return (
         <div className="flex flex-col h-full">
             {/* Tab Bar */}
-            <div className="flex items-center bg-card border-b border-border">
+            <div className="flex items-center bg-secondary-foreground border-border">
                 <div className="flex items-center overflow-x-auto">
+                    <SidebarTrigger className="mx-1" />
                     {tabs.map((tab) => (
                         <div
                             key={tab.id}
                             className={cn(
-                                "flex items-center gap-2 px-3 py-2 text-sm border-r border-border cursor-pointer group min-w-0",
+                                "flex items-center gap-2 px-3 py-2 text-sm border-r border-border cursor-pointer group min-w-0 rounded-t-md",
                                 activeTab === tab.id
                                     ? "bg-background text-foreground"
-                                    : "bg-card text-card-foreground hover:bg-background/50",
+                                    : "bg-card/50 text-card-foreground hover:bg-background/50",
                             )}
                             onClick={() => onTabChange(tab.id)}
                         >
@@ -124,20 +101,35 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
             <div className="flex-1 relative">
                 {currentTab ? (
                     <div className="h-full">
-                        <textarea
-                            className="w-full h-full p-4 bg-background text-foreground font-mono text-sm resize-none border-none outline-none"
-                            value={content[currentTab.id] || currentTab.content}
-                            onChange={(e) => handleContentChange(e.target.value)}
-                            placeholder="Start typing..."
-                            spellCheck={false}
-                        />
+                        {typeof currentTab.content === 'string' ?
+                            <TextAreaHighlighted
+                                value={content[currentTab.id] || currentTab.content}
+                                onChange={(e) => handleContentChange(e.target.value)}
+                                placeholder="Start typing..."
+                                padding={15}
+                                language='ts'
+                                rehypePlugins={[
+                                    [rehypePrism, { showLineNumbers: true }]
+                                ]}
+                                style={{
+                                    backgroundColor: "#00000000",
+                                    fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+                                    fontWeight: 'bolder',
+                                    fontSize: '14px'
+                                }}
+                                spellCheck={false}
+                            />
+                            : <div className='p-8 prose dark:prose-invert   '>
+                                {currentTab.content}
+                            </div>
+                        }
                     </div>
                 ) : (
                     <div className="flex items-center justify-center h-full text-foreground bg-background">
                         <div className="text-center">
-                            <File className="w-12 h-12 mx-auto mb-4 text-gray-400" />
+                            <File className="w-12 h-12 mx-auto mb-4 text-white" />
                             <p className="text-lg font-medium text-foreground">No file selected</p>
-                            <p className="text-sm text-gray-400">Select a file from the explorer to start editing</p>
+                            <p className="text-sm text-white">Select a file from the explorer to start editing</p>
                         </div>
                     </div>
                 )}
