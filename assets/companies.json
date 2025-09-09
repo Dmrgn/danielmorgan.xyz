@@ -1,9 +1,9 @@
 [
     {
-        "id": 1,
+        "id": "test",
         "name": "Boost AI",
         "projects": [
-            "thundr",
+            "thundr.ca",
             "Infrascan",
             "thundr-Models",
             "PostWorthy",

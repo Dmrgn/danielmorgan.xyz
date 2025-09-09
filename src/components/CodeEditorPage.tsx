@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { FileTree } from "./FileTree"
 import { CodeEditor } from "./CodeEditor"
 import { LoadingCard } from "./LoadingCard"
@@ -9,7 +9,7 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarProvider 
 import { Github, Linkedin, Mail, User } from "lucide-react"
 import ReadMe from "./files/Readme"
 import Projects from "./files/Projects"
-import { fileContents, files } from "./files/manifest"
+import { buildManifest } from "./files/manifest"
 
 export interface Tab {
     id: string
@@ -21,16 +21,31 @@ export interface Tab {
 }
 
 export default function CodeEditorPage() {
+    const manifest = buildManifest(typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("type") || undefined : undefined);
+    const [filesState, setFilesState] = useState(manifest.files);
+    const [fileContentsState, setFileContentsState] = useState(manifest.fileContents);
+
     const [tabs, setTabs] = useState<Tab[]>([{
         id: `tab-${Date.now()}`,
         name: "README.md",
         path: "README.md",
-        content: fileContents["README.md"],
+        content: fileContentsState["README.md"],
         language: "md",
         isDirty: false,
-    }])
-    const [activeTab, setActiveTab] = useState<string>(tabs[0]?.id)
+    }]);
+    const [activeTab, setActiveTab] = useState<string>(tabs[0]?.id);
     const [isLoading, setIsLoading] = useState<boolean>(true);
+
+    useEffect(() => {
+        const handlePop = () => {
+            const type = new URLSearchParams(window.location.search).get("type") || undefined;
+            const m = buildManifest(type);
+            setFilesState(m.files);
+            setFileContentsState(m.fileContents);
+        };
+        window.addEventListener("popstate", handlePop);
+        return () => window.removeEventListener("popstate", handlePop);
+    }, []);
 
     const handleFileSelect = (path: string) => {
         // Check if tab already exists
@@ -42,7 +57,7 @@ export default function CodeEditorPage() {
 
         // Create new tab
         const fileName = path.split("/").pop() || path
-        const content: React.ReactNode = fileContents[path] || <p>// Content for ${fileName}</p>
+        const content: React.ReactNode = fileContentsState[path] || <p>// Content for ${fileName}</p>
         const newTab: Tab = {
             id: `tab-${Date.now()}`,
             name: fileName,
@@ -68,9 +83,9 @@ export default function CodeEditorPage() {
         })
     }
 
-    const handleContentChange = (tabId: string, content: string) => {
+        const handleContentChange = (tabId: string, content: string) => {
         setTabs((prev) =>
-            prev.map((tab) => (tab.id === tabId ? { ...tab, content, isDirty: content !== fileContents[tab.path] } : tab)),
+            prev.map((tab) => (tab.id === tabId ? { ...tab, content, isDirty: content !== fileContentsState[tab.path] } : tab)),
         )
     }
 
@@ -90,7 +105,7 @@ export default function CodeEditorPage() {
                     <Sidebar variant="floating">
                         <SidebarContent>
                             <FileTree
-                                files={files}
+                                files={filesState}
                                 onFileSelect={handleFileSelect}
                                 selectedFile={tabs.find((tab) => tab.id === activeTab)?.path}
                             />

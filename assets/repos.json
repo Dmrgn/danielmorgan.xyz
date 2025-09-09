@@ -242,7 +242,7 @@
     },
     {
         "name": "thundr.ca",
-        "description": "A full stack SaaS which automates the creation, sale, and maintenance of websites for construction & home service businesses.",
+        "description": "A full stack SaaS which automates the creation, sale, and maintenance of websites for construction & home service businesses. Backed by a multi-billion dollar VC headquartered Waterloo Ontario.",
         "technologies": [
             "Vue",
             "TypeScript",
