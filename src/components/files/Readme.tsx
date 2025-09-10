@@ -2,7 +2,7 @@ import { MoonStar, Star } from "lucide-react";
 
 export default function ReadMe() {
     return <>
-        <h1>Portfolio Plan</h1>
+        <h1 className="w-full">Portfolio Plan</h1>
         <h3>Skills to Highlight:</h3>
         <ul>
             <li className="list-none flex relative">

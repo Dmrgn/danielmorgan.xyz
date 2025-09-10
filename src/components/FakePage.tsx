@@ -38,13 +38,13 @@ export function FakePage({crashData, hasCrashed, onFakeCrash, onViewCode} : Fake
 
             <ParticleContainer></ParticleContainer>
             <div className="w-full h-[95vh] flex items-center justify-center overflow-hidden">
-                <div className="container w-full h-1/2">
-                    <div className="h-4/5 w-full"></div>
-                    <ScrollWrapper className="w-full h-1/5  bg-[var(--chart-2)] rounded-[var(--radius)] shadow-xl relative">
+                <div className="container max-w-5xl w-full xl:h-1/2 h-4/5">
+                    <div className="h-7/8 w-full"></div>
+                    <ScrollWrapper className="w-full xl:h-2/5 h-1/5  bg-[var(--chart-2)] rounded-[var(--radius)] shadow-xl relative">
                         <div className="absolute md:bottom-20 bottom-5 flex w-full mx-8">
                             <div className="absolute bottom-15 md:bottom-0 right-0 mr-16">
                                 <div className="w-full h-8 bg-radial from-primary to-transparent rounded-full shadow-2xl absolute -bottom-4 z-0"></div>
-                                <img className="relative w-[400px] z-10" src={meUrl} />
+                                <img className="relative xl:w-[400px] w-[400px] sm:w-[300px]  z-10" src={meUrl} />
                             </div>
                             <div className="flex flex-col text-5xl md:text-7xl text-white text-shadow-white absolute left-0 bottom-0 z-20 mr-16 mb-4 font-bold tracking-widest" style={{ fontFamily: 'Freckle Face' }}>
                                 <motion.div initial={{ translateY: 200, opacity: 0 }} animate={{ translateY: 0, opacity: 1, transition: { delay: 0.5 } }} >Hi, I'm</motion.div>

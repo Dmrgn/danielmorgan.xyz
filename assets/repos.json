@@ -1,19 +1,7 @@
 [
     {
-        "name": "Advent-of-Code-22",
-        "description": "Solutions to Advent of Code 2022",
-        "technologies": [
-            "CoffeeScript",
-            "C",
-            "Python"
-        ],
-        "repo_link": "https://github.com/Dmrgn/Advent-of-Code-22",
-        "project_link": null,
-        "year_created": 2022
-    },
-    {
         "name": "Ants-Simulation",
-        "description": "Ant colony simulation written in raw JavaScript",
+        "description": "An Ant colony optimization simulation written in pure JavaScript",
         "technologies": [
             "JavaScript",
             "HTML",
@@ -25,7 +13,7 @@
     },
     {
         "name": "Baron-Berkelys",
-        "description": "The game I created for my grade 9 final project.",
+        "description": "The game I created for my grade 9 final computer science project. Play as a Death Eater navigating through the magical world while capturing unique animals.",
         "technologies": [
             "Java",
             "Processing",
@@ -37,7 +25,7 @@
     },
     {
         "name": "Brain-Parser",
-        "description": "A modified Brain**** interpreter written in Java",
+        "description": "A modified Brain**** interpreter written in Java.",
         "technologies": [
             "Java"
         ],
@@ -47,7 +35,7 @@
     },
     {
         "name": "C-Flappy-Bird",
-        "description": "No description provided",
+        "description": "An implementation of flappy bird in C using Raylib.",
         "technologies": [
             "C"
         ],
@@ -57,7 +45,7 @@
     },
     {
         "name": "C3-Snake",
-        "description": "No description provided",
+        "description": "An implementation of the classic game of snake in the C3 programming language.",
         "technologies": [],
         "repo_link": "https://github.com/Dmrgn/C3-Snake",
         "project_link": null,
@@ -65,7 +53,7 @@
     },
     {
         "name": "Caged",
-        "description": "No description provided",
+        "description": "The final project for my grade 12 computer science course. A Java FX game where the user plays as someone suffering from depression and gains valuable life insight while traversing through a dungeon platformer.",
         "technologies": [
             "Java",
             "Python"
@@ -76,7 +64,7 @@
     },
     {
         "name": "CellTeacher",
-        "description": "LyonHacks II",
+        "description": "Use cellular automata to teach coding through a simple editor. Made for Lyon Hacks II.",
         "technologies": [
             "JavaScript",
             "HTML",
@@ -88,21 +76,8 @@
         "year_created": 2022
     },
     {
-        "name": "danielmorgan.xyz",
-        "description": "The home of my portfolio website.",
-        "technologies": [
-            "Vue",
-            "HTML",
-            "SCSS",
-            "JavaScript"
-        ],
-        "repo_link": "https://github.com/Dmrgn/danielmorgan.xyz",
-        "project_link": "https://www.danielmorgan.xyz",
-        "year_created": 2022
-    },
-    {
         "name": "Discord-Status-Changer",
-        "description": "No description provided",
+        "description": "Automatically change your discord status using Python or JavaScript.",
         "technologies": [
             "JavaScript",
             "Python"
@@ -112,16 +87,8 @@
         "year_created": 2022
     },
     {
-        "name": "Dmrgn",
-        "description": "Config files for my GitHub profile.",
-        "technologies": [],
-        "repo_link": "https://github.com/Dmrgn/Dmrgn",
-        "project_link": "https://github.com/Dmrgn",
-        "year_created": 2021
-    },
-    {
         "name": "Drag-Tracker",
-        "description": "A simple webpage to track your drag clicking speed",
+        "description": "A simple webpage to test your clicking speed.",
         "technologies": [
             "CSS",
             "JavaScript",
@@ -133,7 +100,7 @@
     },
     {
         "name": "EEG-Tickle-Detection",
-        "description": "Using brain-computer interfaces to detect tickling and stop medical failures.",
+        "description": "Using brain-computer interfaces to detect tickling and stop medical failures. Yes tickling... There is a video of this project in the public/videos folder of this repository.",
         "technologies": [
             "Jupyter Notebook",
             "Vue",
@@ -148,7 +115,7 @@
     },
     {
         "name": "Evolutionary-Network",
-        "description": "Simple feed-forward back propagation neutral network written in Zig.",
+        "description": "High performance feed-forward back propagation neutral network written in Zig.",
         "technologies": [
             "Zig"
         ],
@@ -158,7 +125,7 @@
     },
     {
         "name": "Evolutionary-Snake",
-        "description": "An evolutionary algorithm to develop neural networks to play the classic game of snake.",
+        "description": "An evolutionary algorithm which develops neural networks to play the classic game of snake.",
         "technologies": [
             "JavaScript"
         ],
@@ -168,7 +135,7 @@
     },
     {
         "name": "Exam-Buster",
-        "description": "A hackathon project to help students prepare for an exam.",
+        "description": "A set of tools which use AI to help students prepare for an exam. Built for Cerebras hackathon 2025.",
         "technologies": [
             "TypeScript",
             "JavaScript",
@@ -176,7 +143,7 @@
             "HTML"
         ],
         "repo_link": "https://github.com/Dmrgn/Exam-Buster",
-        "project_link": "https://exambuster.danielmorgan.xyz/",
+        "project_link": null,
         "year_created": 2025
     },
     {
@@ -191,7 +158,7 @@
     },
     {
         "name": "Fundi",
-        "description": "CSC207",
+        "description": "Final project for CSC207, a Java swing app for managing a stock portfolio.",
         "technologies": [
             "Java"
         ],
@@ -215,7 +182,7 @@
     },
     {
         "name": "Grinch-Simulator",
-        "description": "Submission to MCPT's 2022 winter game jam",
+        "description": "Submission to MCPT's 2022 winter game jam. Uses a tetris inspired maze generator, Zig, cool shadow graphics, and web assembly.",
         "technologies": [
             "Zig",
             "Shell"
@@ -226,7 +193,7 @@
     },
     {
         "name": "Infrascan",
-        "description": "Software for analyzing the community landscape in a neighbourhood.",
+        "description": "A full stack SaaS for analyzing the community landscape in a neighbourhood.",
         "technologies": [
             "Vue",
             "Python",
@@ -255,7 +222,7 @@
     },
     {
         "name": "Log",
-        "description": "A simple interpreted stack-based programming language written in elixir.",
+        "description": "A simple interpreted stack-based programming language written in Elixir.",
         "technologies": [
             "Elixir"
         ],
@@ -265,7 +232,7 @@
     },
     {
         "name": "Machine-Learning-BattleSnake-Tools",
-        "description": "4 Python tools for creating tensorflow neural networks to play BattleSnake.",
+        "description": "An advanced suite of Python tools for creating Tensorflow neural networks to play BattleSnake.",
         "technologies": [
             "Python"
         ],
@@ -274,21 +241,21 @@
         "year_created": 2023
     },
     {
-        "name": "MCPTJam2021",
-        "description": "Submission to MCPT's 2021 winter game jam",
+        "name": "Maze Marauder",
+        "description": "Go into the dungeon, keep warm with torches, find a sutible weapon, and hope the cold doesn't come alive...",
         "technologies": [
             "JavaScript",
             "HTML",
             "GLSL",
             "CSS"
         ],
-        "repo_link": "https://github.com/Dmrgn/MCPTJam2021",
+        "repo_link": "https://github.com/Dmrgn/Maze-Marauder",
         "project_link": null,
         "year_created": 2021
     },
     {
-        "name": "neuroblock",
-        "description": "Use visual programming to make brain computer interface (BCI) programs.",
+        "name": "Neuroblock",
+        "description": "Use visual programming to make brain computer interface (BCI) programs. I have a video of this in the public/videos folder of this repository. Made for UofT Hacks 2025.",
         "technologies": [
             "JavaScript",
             "TypeScript",
@@ -301,16 +268,8 @@
         "year_created": 2025
     },
     {
-        "name": "NLP-Data",
-        "description": "No description provided",
-        "technologies": [],
-        "repo_link": "https://github.com/Dmrgn/NLP-Data",
-        "project_link": null,
-        "year_created": 2022
-    },
-    {
         "name": "Odin-Snake",
-        "description": "No description provided",
+        "description": "An implementation of the classic game of snake in Odin, a programming language meant for modern high-performance game development.",
         "technologies": [
             "Odin"
         ],
@@ -320,17 +279,17 @@
     },
     {
         "name": "Perceptron-Library",
-        "description": "A multi-layer perceptron library written in JavaScript",
+        "description": "A multi-layer perceptron library written in plain JavaScript. I wrote this project when I was 12 years old, after I watched a youtube video about the (much too advanced for 8th grade me) math behind machine learning.",
         "technologies": [
             "JavaScript"
         ],
         "repo_link": "https://github.com/Dmrgn/Perceptron-Library",
         "project_link": null,
-        "year_created": 2022
+        "year_created": 2019
     },
     {
         "name": "Pike-Snake",
-        "description": "Implementation of snake in pike",
+        "description": "Implementation of the classic game of snake in Pike, a lesser known programming language made for creating text-based dungeon games in the 90s.",
         "technologies": [
             "Pike"
         ],
@@ -340,7 +299,7 @@
     },
     {
         "name": "Plant-Nutrient-Simulator",
-        "description": "Demonstrating concentration changes in plant root cells.",
+        "description": "A demo and explaination of concentration changes in plant root cells. Made for a chemistry assignment.",
         "technologies": [
             "JavaScript",
             "HTML"
@@ -351,7 +310,7 @@
     },
     {
         "name": "PostWorthy",
-        "description": "No description provided",
+        "description": "A web app which scrapes a subreddit and performs extensive data analysis and natural language processing to determine what keywords, topics, etc get the most interactions. Made for SpurHacks 2025.",
         "technologies": [
             "TypeScript",
             "CSS",
@@ -363,7 +322,7 @@
     },
     {
         "name": "Pour",
-        "description": "A game created for Trijam 97",
+        "description": "A game created in 3 hours for Trijam 97.",
         "technologies": [
             "JavaScript",
             "HTML"
@@ -374,7 +333,7 @@
     },
     {
         "name": "Python-Wordle-Bot",
-        "description": "A python bot for the popular word game Wordle",
+        "description": "A python bot for the popular word game Wordle. Uses statistics and information theory to solve the puzzles in 3-4 guesses.",
         "technologies": [
             "Python"
         ],
@@ -384,7 +343,7 @@
     },
     {
         "name": "readytoprogram.xyz",
-        "description": "Documentation for Ready to Program",
+        "description": "My highschools computer science curriculum was severely outdated. On my own time, I made a website which thoroughly documents the functionality of the 30 year old software the class uses. This website is still used by student across Ontario!",
         "technologies": [
             "MDX",
             "Astro",
@@ -396,8 +355,8 @@
         "year_created": 2022
     },
     {
-        "name": "Flip Drip",
-        "description": "Tinder for clothing. Find your style!",
+        "name": "Flip-Drip",
+        "description": "Tinder for clothing. Find your style! Made for Rhythm Hacks 2023",
         "technologies": [
             "HTML",
             "Python",
@@ -411,7 +370,7 @@
     },
     {
         "name": "Sadge-Button",
-        "description": "Click the button.",
+        "description": "Click the button... If you can...",
         "technologies": [
             "Vue",
             "JavaScript",
@@ -423,8 +382,8 @@
         "year_created": 2022
     },
     {
-        "name": "SC22-BatchD-stereo-zombies",
-        "description": "Stereo Zombie's 2022 NLP project",
+        "name": "AI-Movie-Name-Generator",
+        "description": "Using pre-GPT-3 technologies to create a natural language processing engine capable of producing novel movie names given a description of their plot.",
         "technologies": [
             "CSS",
             "HTML",
@@ -439,7 +398,7 @@
     },
     {
         "name": "Space-Chase",
-        "description": "Submission to Ludum Dare 51",
+        "description": "A game written in Zig and compiled with web assembly for Ludum Dare 51.",
         "technologies": [
             "Zig",
             "Shell"
@@ -465,7 +424,7 @@
     },
     {
         "name": "Tic-Tac-Toe",
-        "description": "Tic Tac Toe",
+        "description": "A simple game of Tic Tac Toe written in React.",
         "technologies": [
             "JavaScript",
             "HTML",
@@ -477,7 +436,7 @@
     },
     {
         "name": "TimeZap",
-        "description": "VS Code extension that tracks the time you spend coding",
+        "description": "VS Code extension that tracks the time you spend coding.",
         "technologies": [
             "TypeScript",
             "JavaScript"
@@ -488,7 +447,7 @@
     },
     {
         "name": "Towers-of-Hanoi",
-        "description": "No description provided",
+        "description": "An implementation (and solution) of the classic Towers of Hanoi problem in plain JavaScript.",
         "technologies": [
             "JavaScript"
         ],

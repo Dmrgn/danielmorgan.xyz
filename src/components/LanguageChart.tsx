@@ -33,7 +33,7 @@ const chartData = Object.entries(languageMap).map(x=>({
     linesOfCode: x[1]
 })).sort((a,b)=>{
     return b.linesOfCode - a.linesOfCode;
-}).slice(0,15);
+}).slice(0,30);
 
 const chartConfig = {
     linesOfCode: {

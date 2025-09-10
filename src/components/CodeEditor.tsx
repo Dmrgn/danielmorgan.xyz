@@ -52,7 +52,7 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
     }
 
     return (
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full w-full">
             {/* Tab Bar */}
             <div className="flex items-center bg-secondary-foreground border-border">
                 <div className="flex items-center overflow-x-auto">
@@ -61,7 +61,7 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
                         <div
                             key={tab.id}
                             className={cn(
-                                "flex items-center gap-2 px-3 py-2 text-sm border-r border-border cursor-pointer group min-w-0 rounded-t-md",
+                                "flex items-center gap-2 px-3 py-2 text-sm border-screenr border-border cursor-pointer group min-w-0 rounded-t-md",
                                 activeTab === tab.id
                                     ? "bg-background text-foreground"
                                     : "bg-card/50 text-card-foreground hover:bg-background/50",
@@ -98,9 +98,9 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
             </div>
 
             {/* Editor Area */}
-            <div className="flex-1 relative">
+            <div className="flex-1 relative w-full">
                 {currentTab ? (
-                    <div className="h-full">
+                    <div className="h-full w-full">
                         {typeof currentTab.content === 'string' ?
                             <TextAreaHighlighted
                                 value={content[currentTab.id] || currentTab.content}
@@ -119,8 +119,10 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
                                 }}
                                 spellCheck={false}
                             />
-                            : <div className='p-8 prose dark:prose-invert   '>
-                                {currentTab.content}
+                            : <div className='overflow-y-auto max-h-[92vh] w-full'>
+                                <div className='p-8 prose prose-invert w-full'>
+                                    {currentTab.content}
+                                </div>
                             </div>
                         }
                     </div>

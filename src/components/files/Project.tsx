@@ -77,7 +77,7 @@ export default function Project({ project }: Props) {
                 </div>
             </div>
 
-            <div className="mt-4 prose dark:prose-invert">
+            <div className="mt-4 prose prose-invert">
                 <p>{project.description || "No description provided"}</p>
             </div>
 
