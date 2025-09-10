@@ -1,7 +1,154 @@
 [
     {
+        "name": "thundr.ca",
+        "description": "A full stack SaaS which automates the creation, sale, and maintenance of websites for construction & home service businesses. Backed by a multi-billion dollar VC headquartered Waterloo Ontario.",
+        "technologies": [
+            "Vue",
+            "TypeScript",
+            "CSS",
+            "Shell"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Infrascan",
+        "project_link": "https://thundr.ca?utm_source=portfolio",
+        "year_created": 2025
+    },
+    {
+        "name": "Infrascan",
+        "description": "A full stack SaaS for analyzing the community landscape in a neighbourhood. Multi-award winning and admitted to DMZ-Basecamp, the worlds largest university startup incubator.",
+        "technologies": [
+            "Vue",
+            "Python",
+            "Jupyter Notebook",
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "Shell"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Infrascan",
+        "project_link": null,
+        "year_created": 2023
+    },
+    {
+        "name": "EEG-Tickle-Detection",
+        "description": "Using brain-computer interfaces to detect tickling and stop medical failures. Yes tickling... There is a video of this project in the public/videos folder of this repository.",
+        "technologies": [
+            "Jupyter Notebook",
+            "Vue",
+            "Python",
+            "JavaScript",
+            "HTML",
+            "CSS"
+        ],
+        "repo_link": "https://github.com/Dmrgn/EEG-Tickle-Detection",
+        "project_link": "https://ticklesense.danielmorgan.xyz/",
+        "year_created": 2024
+    },
+    {
+        "name": "Evolutionary-Network",
+        "description": "High performance feed-forward back propagation neutral network written in Zig.",
+        "technologies": [
+            "Zig"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Evolutionary-Network",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "Evolutionary-Snake",
+        "description": "An evolutionary algorithm which develops neural networks to play the classic game of snake.",
+        "technologies": [
+            "JavaScript"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Evolutionary-Snake",
+        "project_link": null,
+        "year_created": 2023
+    },
+    {
+        "name": "Grinch-Simulator",
+        "description": "Submission to MCPT's 2022 winter game jam. Uses a tetris inspired maze generator, Zig, cool shadow graphics, and web assembly.",
+        "technologies": [
+            "Zig",
+            "Shell"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Grinch-Simulator",
+        "project_link": "https://grinchsimulator.danielmorgan.xyz",
+        "year_created": 2022
+    },
+    {
+        "name": "Machine-Learning-BattleSnake-Tools",
+        "description": "An advanced suite of Python tools for creating Tensorflow neural networks to play BattleSnake.",
+        "technologies": [
+            "Python"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Machine-Learning-BattleSnake-Tools",
+        "project_link": null,
+        "year_created": 2023
+    },
+    {
+        "name": "Neuroblock",
+        "description": "Use visual programming to make brain computer interface (BCI) programs. I have a video of this in the public/videos folder of this repository. Made for UofT Hacks 2025.",
+        "technologies": [
+            "JavaScript",
+            "TypeScript",
+            "CSS",
+            "HTML",
+            "Python"
+        ],
+        "repo_link": "https://github.com/Dmrgn/neuroblock",
+        "project_link": null,
+        "year_created": 2025
+    },
+    {
+        "name": "fcpl",
+        "description": "A small functional programming language which transpiles to JavaScript",
+        "technologies": [
+            "JavaScript"
+        ],
+        "repo_link": "https://github.com/Dmrgn/fcpl",
+        "project_link": null,
+        "year_created": 2022
+    },
+    {
+        "name": "Perceptron-Library",
+        "description": "A multi-layer perceptron library written in plain JavaScript. I wrote this project when I was 12 years old, after I watched a youtube video about the (much too advanced for 8th grade me) math behind machine learning.",
+        "technologies": [
+            "JavaScript"
+        ],
+        "repo_link": "https://github.com/Dmrgn/Perceptron-Library",
+        "project_link": null,
+        "year_created": 2019
+    },
+    {
+        "name": "thundr-Models",
+        "description": "Creating minimally sized machine learning models which can perform website text & image classification on edge devices with 10x efficiency over leading solutions.",
+        "technologies": [
+            "Jupyter Notebook",
+            "Python",
+            "TypeScript",
+            "JavaScript",
+            "HTML",
+            "Dockerfile"
+        ],
+        "repo_link": "https://github.com/Dmrgn/thundr-Models",
+        "project_link": "https://thundr.ca",
+        "year_created": 2025
+    },
+    {
+        "name": "readytoprogram.xyz",
+        "description": "My highschools computer science curriculum was severely outdated. On my own time, I made a website which thoroughly documents the functionality of the 30 year old software the class uses. This website is still used by student across Ontario!",
+        "technologies": [
+            "MDX",
+            "Astro",
+            "JavaScript",
+            "CSS"
+        ],
+        "repo_link": "https://github.com/Dmrgn/readytoprogram.xyz",
+        "project_link": "https://readytoprogram.netlify.app/",
+        "year_created": 2022
+    },
+    {
         "name": "Ants-Simulation",
-        "description": "An Ant colony optimization simulation written in pure JavaScript",
+        "description": "An Ant colony optimization simulation written in pure JavaScript. A heuristic solution to the travelling salesman problem.",
         "technologies": [
             "JavaScript",
             "HTML",
@@ -13,7 +160,7 @@
     },
     {
         "name": "Baron-Berkelys",
-        "description": "The game I created for my grade 9 final computer science project. Play as a Death Eater navigating through the magical world while capturing unique animals.",
+        "description": "The game I created for my grade 9 final computer science project. Play as a Death Eater navigating through the magical world while capturing unique animals. I wrote a custom real-time GPU shader engine in GLSL to get cool lighting effects & day/night cycle.",
         "technologies": [
             "Java",
             "Processing",
@@ -99,41 +246,6 @@
         "year_created": 2021
     },
     {
-        "name": "EEG-Tickle-Detection",
-        "description": "Using brain-computer interfaces to detect tickling and stop medical failures. Yes tickling... There is a video of this project in the public/videos folder of this repository.",
-        "technologies": [
-            "Jupyter Notebook",
-            "Vue",
-            "Python",
-            "JavaScript",
-            "HTML",
-            "CSS"
-        ],
-        "repo_link": "https://github.com/Dmrgn/EEG-Tickle-Detection",
-        "project_link": "https://ticklesense.danielmorgan.xyz/",
-        "year_created": 2024
-    },
-    {
-        "name": "Evolutionary-Network",
-        "description": "High performance feed-forward back propagation neutral network written in Zig.",
-        "technologies": [
-            "Zig"
-        ],
-        "repo_link": "https://github.com/Dmrgn/Evolutionary-Network",
-        "project_link": null,
-        "year_created": 2022
-    },
-    {
-        "name": "Evolutionary-Snake",
-        "description": "An evolutionary algorithm which develops neural networks to play the classic game of snake.",
-        "technologies": [
-            "JavaScript"
-        ],
-        "repo_link": "https://github.com/Dmrgn/Evolutionary-Snake",
-        "project_link": null,
-        "year_created": 2023
-    },
-    {
         "name": "Exam-Buster",
         "description": "A set of tools which use AI to help students prepare for an exam. Built for Cerebras hackathon 2025.",
         "technologies": [
@@ -145,16 +257,6 @@
         "repo_link": "https://github.com/Dmrgn/Exam-Buster",
         "project_link": null,
         "year_created": 2025
-    },
-    {
-        "name": "fcpl",
-        "description": "A small functional programming language which transpiles to JavaScript",
-        "technologies": [
-            "JavaScript"
-        ],
-        "repo_link": "https://github.com/Dmrgn/fcpl",
-        "project_link": null,
-        "year_created": 2022
     },
     {
         "name": "Fundi",
@@ -181,46 +283,6 @@
         "year_created": 2023
     },
     {
-        "name": "Grinch-Simulator",
-        "description": "Submission to MCPT's 2022 winter game jam. Uses a tetris inspired maze generator, Zig, cool shadow graphics, and web assembly.",
-        "technologies": [
-            "Zig",
-            "Shell"
-        ],
-        "repo_link": "https://github.com/Dmrgn/Grinch-Simulator",
-        "project_link": "https://grinchsimulator.danielmorgan.xyz",
-        "year_created": 2022
-    },
-    {
-        "name": "Infrascan",
-        "description": "A full stack SaaS for analyzing the community landscape in a neighbourhood.",
-        "technologies": [
-            "Vue",
-            "Python",
-            "Jupyter Notebook",
-            "JavaScript",
-            "HTML",
-            "CSS",
-            "Shell"
-        ],
-        "repo_link": "https://github.com/Dmrgn/Infrascan",
-        "project_link": null,
-        "year_created": 2023
-    },
-    {
-        "name": "thundr.ca",
-        "description": "A full stack SaaS which automates the creation, sale, and maintenance of websites for construction & home service businesses. Backed by a multi-billion dollar VC headquartered Waterloo Ontario.",
-        "technologies": [
-            "Vue",
-            "TypeScript",
-            "CSS",
-            "Shell"
-        ],
-        "repo_link": "https://github.com/Dmrgn/Infrascan",
-        "project_link": "https://thundr.ca?utm_source=portfolio",
-        "year_created": 2025
-    },
-    {
         "name": "Log",
         "description": "A simple interpreted stack-based programming language written in Elixir.",
         "technologies": [
@@ -231,17 +293,7 @@
         "year_created": 2022
     },
     {
-        "name": "Machine-Learning-BattleSnake-Tools",
-        "description": "An advanced suite of Python tools for creating Tensorflow neural networks to play BattleSnake.",
-        "technologies": [
-            "Python"
-        ],
-        "repo_link": "https://github.com/Dmrgn/Machine-Learning-BattleSnake-Tools",
-        "project_link": null,
-        "year_created": 2023
-    },
-    {
-        "name": "Maze Marauder",
+        "name": "Maze-Marauder",
         "description": "Go into the dungeon, keep warm with torches, find a sutible weapon, and hope the cold doesn't come alive...",
         "technologies": [
             "JavaScript",
@@ -254,20 +306,6 @@
         "year_created": 2021
     },
     {
-        "name": "Neuroblock",
-        "description": "Use visual programming to make brain computer interface (BCI) programs. I have a video of this in the public/videos folder of this repository. Made for UofT Hacks 2025.",
-        "technologies": [
-            "JavaScript",
-            "TypeScript",
-            "CSS",
-            "HTML",
-            "Python"
-        ],
-        "repo_link": "https://github.com/Dmrgn/neuroblock",
-        "project_link": null,
-        "year_created": 2025
-    },
-    {
         "name": "Odin-Snake",
         "description": "An implementation of the classic game of snake in Odin, a programming language meant for modern high-performance game development.",
         "technologies": [
@@ -276,16 +314,6 @@
         "repo_link": "https://github.com/Dmrgn/Odin-Snake",
         "project_link": null,
         "year_created": 2025
-    },
-    {
-        "name": "Perceptron-Library",
-        "description": "A multi-layer perceptron library written in plain JavaScript. I wrote this project when I was 12 years old, after I watched a youtube video about the (much too advanced for 8th grade me) math behind machine learning.",
-        "technologies": [
-            "JavaScript"
-        ],
-        "repo_link": "https://github.com/Dmrgn/Perceptron-Library",
-        "project_link": null,
-        "year_created": 2019
     },
     {
         "name": "Pike-Snake",
@@ -342,19 +370,6 @@
         "year_created": 2022
     },
     {
-        "name": "readytoprogram.xyz",
-        "description": "My highschools computer science curriculum was severely outdated. On my own time, I made a website which thoroughly documents the functionality of the 30 year old software the class uses. This website is still used by student across Ontario!",
-        "technologies": [
-            "MDX",
-            "Astro",
-            "JavaScript",
-            "CSS"
-        ],
-        "repo_link": "https://github.com/Dmrgn/readytoprogram.xyz",
-        "project_link": "https://readytoprogram.netlify.app/",
-        "year_created": 2022
-    },
-    {
         "name": "Flip-Drip",
         "description": "Tinder for clothing. Find your style! Made for Rhythm Hacks 2023",
         "technologies": [
@@ -406,21 +421,6 @@
         "repo_link": "https://github.com/Dmrgn/Space-Chase",
         "project_link": "https://spacechase.danielmorgan.xyz",
         "year_created": 2022
-    },
-    {
-        "name": "thundr-Models",
-        "description": "Website text & image classification using Tensorflow",
-        "technologies": [
-            "Jupyter Notebook",
-            "Python",
-            "TypeScript",
-            "JavaScript",
-            "HTML",
-            "Dockerfile"
-        ],
-        "repo_link": "https://github.com/Dmrgn/thundr-Models",
-        "project_link": "https://thundr.ca",
-        "year_created": 2025
     },
     {
         "name": "Tic-Tac-Toe",

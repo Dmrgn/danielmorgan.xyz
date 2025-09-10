@@ -1,8 +1,16 @@
+import { BoldWord } from "../../lib/BoldWord";
+import { useCompanyData } from "@/lib/useCompanyData";
 import { MoonStar, Star } from "lucide-react";
 
 export default function ReadMe() {
+
+    const targetCompany = useCompanyData();
+
     return <>
         <h1 className="w-full">Portfolio Plan</h1>
+        { targetCompany &&
+            <p><BoldWord text={targetCompany.readme} word={targetCompany.name} /></p>
+        }
         <h3>Skills to Highlight:</h3>
         <ul>
             <li className="list-none flex relative">

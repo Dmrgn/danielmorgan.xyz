@@ -1,0 +1,31 @@
+// you can run this file by clicking the play button in the top right of the editor
+
+this.bird = {
+    x: 50,
+    y: 80,
+    velY: 0
+};
+
+// this will run 30 times a second
+this.draw = (ctx) => {
+    // handle gravity
+    this.bird.velY += 0.5;
+    this.bird.velY = Math.min(5, this.bird.velY);
+    this.bird.y += this.bird.velY;
+
+    // check if we are on the ground
+    if (this.bird.y >= 200) {
+        // bounce
+        this.bird.velY = -10;
+    }
+
+    // clear the screen
+    ctx.fillStyle = "CornflowerBlue";
+    ctx.fillRect(0, 0, 200, 200);
+
+    // draw the bird
+    ctx.fillStyle = "yellow";
+    ctx.beginPath();
+    ctx.arc(this.bird.x, this.bird.y, 5, 0, 2 * Math.PI);
+    ctx.fill();
+}
