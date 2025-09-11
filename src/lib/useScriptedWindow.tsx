@@ -4,19 +4,20 @@ export function useScriptedWindow(element: React.RefObject<HTMLElement>, script:
     // create a child canvas inside of element
     const canvas = document.createElement("canvas");
     let isDragging = false;
+    let wasClicked = false;
     let offsetX = 0;
     let offsetY = 0;
-    element.current.addEventListener("mousedown", (e)=> {
-        isDragging = true; 
+    element.current.addEventListener("mousedown", (e) => {
+        isDragging = true;
         offsetX = e.clientX - element.current.getBoundingClientRect().left;
         offsetY = e.clientY - element.current.getBoundingClientRect().top;
         element.current.style.cursor = 'grabbing';
     });
-    element.current.addEventListener("mouseup", (e)=> {
-        isDragging = false; 
+    element.current.addEventListener("mouseup", (e) => {
+        isDragging = false;
         element.current.style.cursor = 'grab';
     });
-    element.current.addEventListener("mousemove", (e)=> {
+    element.current.addEventListener("mousemove", (e) => {
         if (!isDragging) return;
         element.current.style.left = (e.clientX - offsetX) + 'px';
         element.current.style.top = (e.clientY - offsetY) + 'px';
@@ -25,7 +26,6 @@ export function useScriptedWindow(element: React.RefObject<HTMLElement>, script:
     canvas.width = 200;
     canvas.height = 200;
     canvas.className = "w-full h-full cursor-auto";
-    canvas.addEventListener("mousedown", (e) => e.preventDefault())
     const ctx = canvas.getContext("2d");
     element.current.appendChild(canvas);
 
@@ -44,9 +44,14 @@ export function useScriptedWindow(element: React.RefObject<HTMLElement>, script:
         interval = setInterval(() => {
             if (typeof scriptedWindow?.draw !== "function")
                 throw new Error("No draw function was defined. E.g this.draw = (ctx) => { ... }");
-            scriptedWindow.draw(ctx)
-        }, 1000/30);
-    } catch(e) {
+            scriptedWindow.draw(ctx, wasClicked);
+            wasClicked = false;
+        }, 1000 / 30);
+        canvas.addEventListener("click", (e) => {
+            e.preventDefault();
+            wasClicked = true;
+        })
+    } catch (e) {
         clearInterval(interval);
         console.error(e);
     }

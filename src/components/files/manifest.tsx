@@ -7,6 +7,7 @@ import Video from "./Video.ts";
 import AIHeader from "./AIHeader.tsx";
 import AppTsxTxt from "../../../assets/app.txt";
 import type { CompanyData } from "@/lib/useCompanyData.tsx";
+import Content from "./Content.tsx";
 
 function slugify(name: string) {
     return name
@@ -66,7 +67,7 @@ export function buildManifest(company?: CompanyData) {
                     path: "src/components",
                     children: [
                         { name: "Header.tsx", type: "file", path: "src/components/Header.tsx" },
-                        { name: "Footer.tsx", type: "file", path: "src/components/Footer.tsx" },
+                        { name: "Content.tsx", type: "file", path: "src/components/Content.tsx" },
                         { name: "Button.tsx", type: "file", path: "src/components/Button.tsx" },
                     ],
                 },
@@ -101,7 +102,7 @@ export function buildManifest(company?: CompanyData) {
         },
         { name: "tsconfig.json", type: "file", path: "tsconfig.json" },
         { name: "README.md", type: "file", path: "README.md" },
-    ];
+    ] as const;
 
     // build fileContents
     const defaultFileContents = {
@@ -129,6 +130,7 @@ export function buildManifest(company?: CompanyData) {
 `,
         "README.md": <ReadMe />,
         "src/components/Header.tsx": <AIHeader />,
+        "src/components/Content.tsx": <Content />,
         "public/projects.json": <Projects />,
         "src/App.tsx": AppTsxTxt,
         "public/videos/traffic.webm": <Video id="gE0qPx-4PYk" />,
@@ -139,7 +141,7 @@ export function buildManifest(company?: CompanyData) {
         ...projectFileContents,
     };
 
-    // if no company is being targeted , return default manifest
+    // if no company is being targeted, return default manifest
     if (!company) {
         return { files: defaultFiles, fileContents: defaultFileContents };
     }
@@ -158,7 +160,7 @@ export function buildManifest(company?: CompanyData) {
         }
     }
 
-    // other projects: keep the same global sorting (year desc, stable)
+    // other projects: keep the same global sorting
     const otherProjectNodes: FileNode[] = repos
         .filter((p) => !matchedProjectNames.has(p.name))
         .map((p) => projectNodeForRepo(p));
@@ -167,56 +169,27 @@ export function buildManifest(company?: CompanyData) {
     const companyFolderName = `${company.name}-projects`;
     const companyFolderPath = `public/projects/${slugify(company.name)}-projects`;
 
-    const files: FileNode[] = [
-        {
-            name: "src",
-            type: "folder",
-            path: "src",
-            children: [
-                {
-                    name: "components",
-                    type: "folder",
-                    path: "src/components",
-                    children: [
-                        { name: "Header.tsx", type: "file", path: "src/components/Header.tsx" },
-                        { name: "Footer.tsx", type: "file", path: "src/components/Footer.tsx" },
-                        { name: "Button.tsx", type: "file", path: "src/components/Button.tsx" },
-                    ],
-                },
-                { name: "App.tsx", type: "file", path: "src/App.tsx" },
-            ],
-        },
-        {
-            name: "public",
-            type: "folder",
-            path: "public",
-            children: [
-                { name: "projects.json", type: "file", path: "public/projects.json" },
-                {
-                    name: "projects",
-                    type: "folder",
-                    path: "public/projects",
-                    children: [
-                        {
-                            name: companyFolderName,
-                            type: "folder",
-                            path: companyFolderPath,
-                            children: companyProjectNodes,
-                        },
-                        {
-                            name: "other-projects",
-                            type: "folder",
-                            path: "public/projects/other-projects",
-                            children: otherProjectNodes,
-                        },
-                    ],
-                },
-            ],
-        },
-        { name: "tsconfig.json", type: "file", path: "tsconfig.json" },
-        { name: "README.md", type: "file", path: "README.md" },
-    ];
+    // change projects
+    defaultFiles[1].children[1] = {
+        name: "projects",
+        type: "folder",
+        path: "public/projects",
+        children: [
+            {
+                name: companyFolderName,
+                type: "folder",
+                path: companyFolderPath,
+                children: companyProjectNodes,
+            },
+            {
+                name: "other-projects",
+                type: "folder",
+                path: "public/projects/other-projects",
+                children: otherProjectNodes,
+            },
+        ]
+    };
 
     // fileContents remain the same (we already included all project contents into projectFileContents)
-    return { files, fileContents: defaultFileContents };
+    return {files: defaultFiles, fileContents: defaultFileContents };
 }

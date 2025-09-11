@@ -51,10 +51,8 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
     const startScriptedWindow = () => {
         setIsScriptedWindowOpen(true);
         scriptedWindowCleanup.current = useScriptedWindow(scriptedWindow, currentTab.content as string);
-        console.log("scriptedWindow", scriptedWindowCleanup);
     }
     const onCloseScriptedWindow = () => {
-        console.log("scriptedWindow after", scriptedWindowCleanup);
         scriptedWindowCleanup.current();
         setIsScriptedWindowOpen(false);
     }
@@ -129,23 +127,25 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
                 {currentTab ? (
                     <div className="h-full w-full">
                         {typeof currentTab.content === 'string' ?
-                            <TextAreaHighlighted
-                                value={content[currentTab.id] || currentTab.content}
-                                onChange={(e) => handleContentChange(e.target.value)}
-                                placeholder="Start typing..."
-                                padding={15}
-                                language='ts'
-                                rehypePlugins={[
-                                    [rehypePrism, { showLineNumbers: true }]
-                                ]}
-                                style={{
-                                    backgroundColor: "#00000000",
-                                    fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
-                                    fontWeight: 'bolder',
-                                    fontSize: '14px'
-                                }}
-                                spellCheck={false}
-                            />
+                            <div className='max-h-[92vh] overflow-y-auto'>
+                                <TextAreaHighlighted
+                                    value={content[currentTab.id] || currentTab.content}
+                                    onChange={(e) => handleContentChange(e.target.value)}
+                                    placeholder="Start typing..."
+                                    padding={15}
+                                    language='ts'
+                                    rehypePlugins={[
+                                        [rehypePrism, { showLineNumbers: true }]
+                                    ]}
+                                    style={{
+                                        backgroundColor: "#00000000",
+                                        fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+                                        fontWeight: 'bolder',
+                                        fontSize: '14px'
+                                    }}
+                                    spellCheck={false}
+                                />
+                            </div>
                             : <div className='overflow-y-auto max-h-[92vh] w-full'>
                                 <div className='p-8 prose prose-invert w-full'>
                                     {currentTab.content}
