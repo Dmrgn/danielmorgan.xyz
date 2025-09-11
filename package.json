@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "bun ./src/index.html",
-    "build": "bun build ./src/index.html --minify --outdir=dist"
+    "build:css": "bunx tailwindcss -i ./src/index.css -o ./dist/tw.css --minify",
+    "build": "bun run build:css && bun build ./src/index.html --outdir=dist"
   },
   "dependencies": {
     "@fontsource/chewy": "^5.2.6",
@@ -43,6 +44,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.1.13",
     "@tailwindcss/typography": "^0.5.16",
     "@types/bun": "latest",
     "@types/react": "^19",
