@@ -4,6 +4,7 @@ import Project from "./Project";
 import repos from "../../../assets/repos.json";
 import companies from "../../../assets/companies.json";
 import Video from "./Video.ts";
+import AIHeader from "./AIHeader.tsx";
 
 function slugify(name: string) {
     return name
@@ -139,6 +140,7 @@ export function buildManifest(companyId?: string) {
 }
 `,
         "README.md": <ReadMe />,
+        "src/components/Header.tsx": <AIHeader />,
         "public/projects.json": <Projects />,
         "public/videos/traffic.webm": <Video id="gE0qPx-4PYk" />,
         "public/videos/gamedev.webm": <Video id="v1pUm38jRmk" />,

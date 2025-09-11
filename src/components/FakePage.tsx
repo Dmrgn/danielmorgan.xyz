@@ -61,7 +61,7 @@ export function FakePage({crashData, hasCrashed, onFakeCrash, onViewCode} : Fake
                 </div>
             </div>
 
-            <div className="w-full container flex flex-col items-center">
+            <div className="w-full container flex flex-col items-center md:mt-0 mt-32">
                 <ScrollWrapper>
                     <h2 className="mb-8 text-5xl text-white text-shadow-2xl" style={{ fontFamily: 'Freckle Face' }}>Who is Daniel?</h2>
                 </ScrollWrapper>
