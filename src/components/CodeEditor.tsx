@@ -1,13 +1,14 @@
 "use client"
 
 import rehypePrism from 'rehype-prism-plus';
-import { useState } from "react"
-import { X, Play, Save, Settings, File } from "lucide-react"
+import { useRef, useState } from "react"
+import { X, Play, Save, Settings, File, Pause } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { SidebarTrigger } from "./ui/sidebar"
 import type { Tab } from "./CodeEditorPage"
 import { default as TextAreaHighlighted } from '@uiw/react-textarea-code-editor';
+import { useScriptedWindow } from '../lib/useScriptedWindow';
 
 interface CodeEditorProps {
     tabs: Tab[]
@@ -40,19 +41,36 @@ const getLanguageFromPath = (path: string): string => {
 }
 
 export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContentChange }: CodeEditorProps) {
-    const [content, setContent] = useState<Record<string, string>>({})
+    const [content, setContent] = useState<Record<string, string>>({});
+    const [isScriptedWindowOpen, setIsScriptedWindowOpen] = useState<boolean>(false);
 
-    const currentTab = tabs.find((tab) => tab.id === activeTab)
+    const scriptedWindow = useRef(null);
+    const currentTab = tabs.find((tab) => tab.id === activeTab);
+    let scriptedWindowCleanup = useRef(()=>{});
+
+    const startScriptedWindow = () => {
+        setIsScriptedWindowOpen(true);
+        scriptedWindowCleanup.current = useScriptedWindow(scriptedWindow, currentTab.content as string);
+        console.log("scriptedWindow", scriptedWindowCleanup);
+    }
+    const onCloseScriptedWindow = () => {
+        console.log("scriptedWindow after", scriptedWindowCleanup);
+        scriptedWindowCleanup.current();
+        setIsScriptedWindowOpen(false);
+    }
 
     const handleContentChange = (value: string) => {
         if (currentTab) {
-            setContent((prev) => ({ ...prev, [currentTab.id]: value }))
-            onContentChange(currentTab.id, value)
+            setContent((prev) => ({ ...prev, [currentTab.id]: value }));
+            onContentChange(currentTab.id, value);
         }
     }
 
     return (
-        <div className="flex flex-col h-full w-full">
+        <div className="flex flex-col h-full w-full overflow-clip">
+            {/* Scripted Window */}
+            <div className='absolute z-[100] pt-8 bg-white rounded-t-[var(--radius)] rounded-b-[var(--radius)] overflow-clip shadow-md' style={{ cursor: "grab", top: "0px", left: "0px" }} ref={scriptedWindow}></div>
+
             {/* Tab Bar */}
             <div className="flex items-center bg-secondary-foreground border-border">
                 <div className="flex items-center overflow-x-auto">
@@ -88,9 +106,18 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
                     <Button variant="ghost" size="sm">
                         <Save className="w-4 h-4" />
                     </Button>
-                    <Button variant="ghost" size="sm">
-                        <Play className="w-4 h-4" />
-                    </Button>
+                    {currentTab && typeof currentTab.content === "string" &&
+                        (
+                            isScriptedWindowOpen ?
+                                <Button variant="ghost" size="sm" onClick={onCloseScriptedWindow}>
+                                    <Pause className="w-4 h-4" />
+                                </Button>
+                                : <Button variant="ghost" size="sm" onClick={startScriptedWindow}>
+                                    <Play className="w-4 h-4" />
+                                </Button>
+
+                        )
+                    }
                     <Button variant="ghost" size="sm">
                         <Settings className="w-4 h-4" />
                     </Button>

@@ -10,6 +10,8 @@ import { Github, Linkedin, Mail, User } from "lucide-react"
 import ReadMe from "./files/Readme"
 import Projects from "./files/Projects"
 import { buildManifest } from "./files/manifest"
+import { useCompanyData } from "../lib/useCompanyData"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export interface Tab {
     id: string
@@ -21,9 +23,12 @@ export interface Tab {
 }
 
 export default function CodeEditorPage() {
-    const manifest = buildManifest(typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("type") || undefined : undefined);
+    const targetCompany = useCompanyData();
+    const manifest = buildManifest(targetCompany);
     const [filesState, setFilesState] = useState(manifest.files);
     const [fileContentsState, setFileContentsState] = useState(manifest.fileContents);
+
+    const isMobile = useIsMobile();
 
     const [tabs, setTabs] = useState<Tab[]>([{
         id: `tab-${Date.now()}`,
@@ -38,8 +43,8 @@ export default function CodeEditorPage() {
 
     useEffect(() => {
         const handlePop = () => {
-            const type = new URLSearchParams(window.location.search).get("type") || undefined;
-            const m = buildManifest(type);
+            const targetCompany = useCompanyData();
+            const m = buildManifest(targetCompany);
             setFilesState(m.files);
             setFileContentsState(m.fileContents);
         };
@@ -48,14 +53,19 @@ export default function CodeEditorPage() {
     }, []);
 
     const handleFileSelect = (path: string) => {
-        // Check if tab already exists
         const existingTab = tabs.find((tab) => tab.path === path)
         if (existingTab) {
             setActiveTab(existingTab.id)
             return
         }
 
-        // Create new tab
+        // check if there are too many tabs
+        const maxTabs = (isMobile ? 2 : 5);
+        if (tabs.length >= maxTabs) {
+            handleTabClose(tabs[0].id);
+        }
+
+        // create new tab
         const fileName = path.split("/").pop() || path
         const content: React.ReactNode = fileContentsState[path] || <p>// Content for ${fileName}</p>
         const newTab: Tab = {

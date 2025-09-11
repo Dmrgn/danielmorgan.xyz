@@ -5,6 +5,8 @@ import repos from "../../../assets/repos.json";
 import companies from "../../../assets/companies.json";
 import Video from "./Video.ts";
 import AIHeader from "./AIHeader.tsx";
+import AppTsxTxt from "../../../assets/app.txt";
+import type { CompanyData } from "@/lib/useCompanyData.tsx";
 
 function slugify(name: string) {
     return name
@@ -23,26 +25,12 @@ type FileNode = {
 
 /**
  * Build the files and fileContents manifest.
- * If companyId is provided (string), and matches companies[].id (coerced to string),
- * the public/projects folder will be replaced with two folders:
- *  - {company.name}-projects (slugified path) containing the exact projects listed for the company (keeps the company's array order)
- *  - other-projects containing remaining projects (sorted by year desc then original order)
  *
- * When no companyId or no matching company, returns the default manifest with a single public/projects folder containing all projects.
+ * When not targeting a company, returns the default manifest with a single public/projects folder containing all projects.
  */
-export function buildManifest(companyId?: string) {
-    // preserve original order index so we can do a stable sort by year then original order
-    const projectsWithIndex = (repos as any[]).map((p, i) => ({ ...p, __index: i }));
-
-    // sort by year_created desc, then by original array order
-    const sortedProjects = projectsWithIndex.slice().sort((a, b) => {
-        const yearDiff = (b.year_created || 0) - (a.year_created || 0);
-        if (yearDiff !== 0) return yearDiff;
-        return a.__index - b.__index;
-    });
-
+export function buildManifest(company?: CompanyData) {
     // all project file nodes (used for the default view)
-    const allProjectNodes = sortedProjects.map((p) => ({
+    const allProjectNodes = repos.map((p) => ({
         name: `${p.name}.json`,
         type: "file" as const,
         path: `public/projects/${slugify(p.name)}.json`,
@@ -50,7 +38,7 @@ export function buildManifest(companyId?: string) {
 
     // map of path => React content for every project
     const projectFileContents = Object.fromEntries(
-        sortedProjects.map((p) => {
+        repos.map((p) => {
             const path = `public/projects/${slugify(p.name)}.json`;
             return [path, <Project project={p} />];
         }),
@@ -115,7 +103,7 @@ export function buildManifest(companyId?: string) {
         { name: "README.md", type: "file", path: "README.md" },
     ];
 
-    // build fileContents including README and projects.json
+    // build fileContents
     const defaultFileContents = {
         "tsconfig.json": `// I don't know what you were expecting to find here...
 {
@@ -142,6 +130,7 @@ export function buildManifest(companyId?: string) {
         "README.md": <ReadMe />,
         "src/components/Header.tsx": <AIHeader />,
         "public/projects.json": <Projects />,
+        "src/App.tsx": AppTsxTxt,
         "public/videos/traffic.webm": <Video id="gE0qPx-4PYk" />,
         "public/videos/gamedev.webm": <Video id="v1pUm38jRmk" />,
         "public/videos/tickling.webm": <Video id="Teh1WYaFt44" />,
@@ -150,45 +139,33 @@ export function buildManifest(companyId?: string) {
         ...projectFileContents,
     };
 
-    // If no companyId provided, return default manifest
-    if (!companyId) {
+    // if no company is being targeted , return default manifest
+    if (!company) {
         return { files: defaultFiles, fileContents: defaultFileContents };
     }
 
-    // find company by id (ids in companies.json may be strings; coerce to string)
-    const matchedCompany = (companies as any[]).find((c) => String(c.id) === String(companyId));
-
-    if (!matchedCompany) {
-        // no match, return default
-        return { files: defaultFiles, fileContents: defaultFileContents };
-    }
-
-    // Build company-specific project nodes in the exact order specified in the company.projects array
+    // build company-specific project nodes in the exact order specified in the company.projects array
     const companyProjectNodes: FileNode[] = [];
     const matchedProjectNames = new Set<string>();
 
-    for (const projName of matchedCompany.projects || []) {
-        // Exact match only (as requested)
+    for (const projName of company.projects || []) {
         const found = (repos as any[]).find((r) => r.name === projName);
         if (found) {
             companyProjectNodes.push(projectNodeForRepo(found));
             matchedProjectNames.add(found.name);
         } else {
-            // If a listed project name doesn't match any repo exactly, warn so you can fix companies.json
-            // Use console.warn for developer visibility
-            // eslint-disable-next-line no-console
-            console.warn(`companies.json: project "${projName}" not found in repos.json (expected exact match).`);
+            console.log(`companies.json: project "${projName}" not found in repos.json.`);
         }
     }
 
-    // Other projects: those not in matchedProjectNames, keep the same global sorting (year desc, stable)
-    const otherProjectNodes: FileNode[] = sortedProjects
+    // other projects: keep the same global sorting (year desc, stable)
+    const otherProjectNodes: FileNode[] = repos
         .filter((p) => !matchedProjectNames.has(p.name))
         .map((p) => projectNodeForRepo(p));
 
     // Compose files with two folders under public/projects
-    const companyFolderName = `${matchedCompany.name}-projects`;
-    const companyFolderPath = `public/projects/${slugify(matchedCompany.name)}-projects`;
+    const companyFolderName = `${company.name}-projects`;
+    const companyFolderPath = `public/projects/${slugify(company.name)}-projects`;
 
     const files: FileNode[] = [
         {
