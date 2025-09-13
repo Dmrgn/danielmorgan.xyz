@@ -4,10 +4,11 @@ import Project from "./Project";
 import repos from "../../../assets/repos.json";
 import companies from "../../../assets/companies.json";
 import Video from "./Video.ts";
-import AIHeader from "./AIHeader.tsx";
+import AIInput from "./AIInput.tsx";
 import AppTsxTxt from "../../../assets/app.txt";
 import type { CompanyData } from "@/lib/useCompanyData.tsx";
 import Content from "./Content.tsx";
+import RandomButton from "./RandomButton.tsx";
 
 function slugify(name: string) {
     return name
@@ -66,7 +67,7 @@ export function buildManifest(company?: CompanyData) {
                     type: "folder",
                     path: "src/components",
                     children: [
-                        { name: "Header.tsx", type: "file", path: "src/components/Header.tsx" },
+                        { name: "AIInput.tsx", type: "file", path: "src/components/AIInput.tsx" },
                         { name: "Content.tsx", type: "file", path: "src/components/Content.tsx" },
                         { name: "Button.tsx", type: "file", path: "src/components/Button.tsx" },
                     ],
@@ -129,8 +130,9 @@ export function buildManifest(company?: CompanyData) {
 }
 `,
         "README.md": <ReadMe />,
-        "src/components/Header.tsx": <AIHeader />,
+        "src/components/AIInput.tsx": <AIInput />,
         "src/components/Content.tsx": <Content />,
+        // "src/components/Button.tsx": <RandomButton />,
         "public/projects.json": <Projects />,
         "src/App.tsx": AppTsxTxt,
         "public/videos/traffic.webm": <Video id="gE0qPx-4PYk" />,

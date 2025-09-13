@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 import { Send } from "lucide-react";
 import { motion } from "motion/react"
 
-export default function AIHeader() {
+export default function AIInput() {
     const [requestValue, setReqestValue] = useState("");
 
     function mailToMe() {
