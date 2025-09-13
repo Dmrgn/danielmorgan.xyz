@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun ./src/index.html",
-    "build:css": "bunx tailwindcss -i ./src/index.css -o ./dist/tw.css --minify",
+    "build:css": "bunx tailwindcss -i ./styles/globals.css -o ./dist/tw.css --minify",
     "build": "bun run build:css && bun build ./src/index.html --outdir=dist"
   },
   "dependencies": {
