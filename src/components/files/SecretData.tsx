@@ -67,7 +67,7 @@ export default function ᚠᚢᚦᚨᚱᚲ() {
             {γ && !ι && (
                 <>
                     <h2>{De("RmlsZSBDb250ZW50czo=")}</h2>
-                    <p>{"This file is empty. \\u00AF\\_(\\u30C4)_/\\u00AF"}</p>
+                    <p>{"This file is empty. ¯\\_(ツ)_/¯"}</p>
                     <p>{"No need to keep looking! Nothing to see here!"}</p>
                 </>
             )}
