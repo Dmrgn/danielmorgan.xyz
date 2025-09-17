@@ -1,6 +1,6 @@
 # www.danielmorgan.xyz
 
-[www.danielmorgan.xyz](https://www.danielmorgan.xyz) is the current home of my portfolio website. I plan on adding a few more features as time goes on, and I'm sure I'll want to rewrite it at some point, but for now it works. 
+[www.danielmorgan.xyz](https://www.danielmorgan.xyz) is the previous home of my portfolio website. I've rewritten my portfolio [here.](https://github.com/dmrgn/portfolio)
 
 ---
 
