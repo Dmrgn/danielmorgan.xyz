@@ -5,7 +5,7 @@ import { Send } from "lucide-react";
 import { motion } from "motion/react"
 
 export default function AIInput() {
-    const [requestValue, setReqestValue] = useState("");
+    const [requestValue, setRequestValue] = useState("");
 
     function mailToMe() {
         const a = document.createElement("a");
@@ -19,7 +19,7 @@ export default function AIInput() {
         <p>I'll use this component somewhere on my portfolio.</p>
         <p>The cool part is that it doesn't use large language models! It might take a few hours to respond though...</p>
         <div className="flex gap-2">
-            <Input onInput={(e) => { setReqestValue(e.currentTarget.value) }} placeholder="Ask a question about my portfolio..." />
+            <Input onInput={(e) => { setRequestValue(e.currentTarget.value) }} placeholder="Ask a question about my portfolio..." />
             {requestValue.length > 3 &&
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} >
                     <Button onClick={mailToMe}>

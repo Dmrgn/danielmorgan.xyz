@@ -151,7 +151,7 @@
 }
 
 /* for code editor syntax highlighting */
-.w-tc-editor {
+.w-tc-editor {          
     /* base */
     --color-bg: #1565c0 !important;
     /* your background */

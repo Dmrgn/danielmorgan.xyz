@@ -1,4 +1,3 @@
-import { ThumbsDown, ThumbsUp } from "lucide-react";
 import { Button } from "../ui/button";
 
 export default function RandomButton() {

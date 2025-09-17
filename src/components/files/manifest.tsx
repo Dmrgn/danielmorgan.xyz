@@ -9,6 +9,7 @@ import AppTsxTxt from "../../../assets/app.txt";
 import type { CompanyData } from "@/lib/useCompanyData.tsx";
 import Content from "./Content.tsx";
 import RandomButton from "./RandomButton.tsx";
+import SecretData from "./SecretData.tsx";
 
 function slugify(name: string) {
     return name
@@ -69,7 +70,7 @@ export function buildManifest(company?: CompanyData) {
                     children: [
                         { name: "AIInput.tsx", type: "file", path: "src/components/AIInput.tsx" },
                         { name: "Content.tsx", type: "file", path: "src/components/Content.tsx" },
-                        { name: "Button.tsx", type: "file", path: "src/components/Button.tsx" },
+                        { name: "Secret.tsx", type: "file", path: "src/components/Secret.tsx" },
                     ],
                 },
                 { name: "App.tsx", type: "file", path: "src/App.tsx" },
@@ -132,7 +133,7 @@ export function buildManifest(company?: CompanyData) {
         "README.md": <ReadMe />,
         "src/components/AIInput.tsx": <AIInput />,
         "src/components/Content.tsx": <Content />,
-        // "src/components/Button.tsx": <RandomButton />,
+        "src/components/Secret.tsx": <SecretData />,
         "public/projects.json": <Projects />,
         "src/App.tsx": AppTsxTxt,
         "public/videos/traffic.webm": <Video id="gE0qPx-4PYk" />,

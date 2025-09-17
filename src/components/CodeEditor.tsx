@@ -9,6 +9,11 @@ import { SidebarTrigger } from "./ui/sidebar"
 import type { Tab } from "./CodeEditorPage"
 import { default as TextAreaHighlighted } from '@uiw/react-textarea-code-editor';
 import { useScriptedWindow } from '../lib/useScriptedWindow';
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 interface CodeEditorProps {
     tabs: Tab[]
@@ -46,7 +51,7 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
 
     const scriptedWindow = useRef(null);
     const currentTab = tabs.find((tab) => tab.id === activeTab);
-    let scriptedWindowCleanup = useRef(()=>{});
+    let scriptedWindowCleanup = useRef(() => { });
 
     const startScriptedWindow = () => {
         setIsScriptedWindowOpen(true);
@@ -100,10 +105,7 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
                         </div>
                     ))}
                 </div>
-                <div className="flex items-center gap-1 ml-auto px-2">
-                    <Button variant="ghost" size="sm">
-                        <Save className="w-4 h-4" />
-                    </Button>
+                <div className="flex items-center gap-2 ml-auto px-2">
                     {currentTab && typeof currentTab.content === "string" &&
                         (
                             isScriptedWindowOpen ?
@@ -116,6 +118,16 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
 
                         )
                     }
+                    <Tooltip>
+                        <TooltipTrigger>
+                            <Button disabled variant="ghost" size="sm">
+                                <Save className="w-4 h-4" />
+                            </Button>
+                        </TooltipTrigger>
+                        <TooltipContent className='mr-2'>
+                            Saving is disabled in this repository.
+                        </TooltipContent>
+                    </Tooltip>
                     <Button variant="ghost" size="sm">
                         <Settings className="w-4 h-4" />
                     </Button>
