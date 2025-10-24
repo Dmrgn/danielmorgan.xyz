@@ -2,4 +2,4 @@
 
 I've been having some issues while developing this project! Maybe you can help me out!
 
-[danielmorgan.xyz](danielmorgan.xyz)
+[danielmorgan.xyz](https://danielmorgan.xyz)
