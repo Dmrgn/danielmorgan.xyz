@@ -63,7 +63,7 @@ export default function Content() {
 
     const blocks: any[] = [
         { type: 'h1', text: "Hi, I'm Daniel Morgan", className: "w-full max-w-[65ch]" },
-        { type: 'p', text: "I’ve been coding since age 9 - now I’m building startups that win grants, incubator spots, and pitch competitions.", className: "max-w-[65ch]" },
+        { type: 'p', text: "Recently I've been diving into the world of startups.", className: "max-w-[65ch]" },
         { type: 'row', items: [
             { type: 'img', el: <img className="w-8 mt-0 mb-0" src="https://thundr.ca/thundr.png" alt="thundr logo" /> },
             { type: 'h3', text: "What is thundr.ca?", className: "mt-0 mb-0" },
@@ -72,7 +72,7 @@ export default function Content() {
         { type: 'p', text: "I solo developed thundr from scratch over the course of a year, iterating over 3 major prototypes and over 250 websites built.", className: "max-w-[65ch]" },
         { type: 'p', text: "thundr's stack includes Nuxt, Vue, Typescript, Tailwind, payment integration (Stripe), emailing (NodeMailer), DNS & proxy (Traefik), web scraping (Puppeteer), Amazon S3, machine learning (Tensorflow), and Prisma + CockroachDB.", className: "max-w-[65ch]" },
         { type: 'p', text: "Sites made with thundr have amassed thousands of visitors per month.", className: "max-w-[65ch]" },
-        { type: 'p', text: "I recently raised funding with support from a multi-billion dollar venture capitalist firm to bring thundr to 10,000 small businesses across Canada. ", className: "max-w-[65ch]" },
+        { type: 'p', text: "thundr was recently part of an accelerator program in Waterloo, hosted by a major venture capitalist.", className: "max-w-[65ch]" },
     ];
 
     return <>

@@ -1,7 +1,7 @@
 import "../index.css";
 import meUrl from "../../assets/me.png";
 import '@fontsource/freckle-face';
-import { BookOpenCheck, BookOpenText, Building2, CircleQuestionMark, CircleUserRound, Cloud, CloudAlert, Code, Database, Zap } from "lucide-react";
+import { BookOpenCheck, BookOpenText, Ambulance, Building2, CircleQuestionMark, CircleUserRound, Cloud, CloudAlert, Code, Database, Zap } from "lucide-react";
 
 import ParticleContainer from "./ParticleContainer";
 import ScrollWrapper from "./ScrollWrapper";
@@ -67,7 +67,7 @@ export function FakePage({crashData, hasCrashed, onFakeCrash, onViewCode} : Fake
                 </ScrollWrapper>
                 <div className="grid md:grid-cols-2 gap-8 font-bold">
                     {AboutItem(
-                        "Software Engineering Specialist Student @ University of Toronto",
+                        "Software Engineering Specialist @ University of Toronto",
                         <BookOpenText className="w-8 h-8 mr-4" />,
                         "left",
                         "#ebcc34",
@@ -77,13 +77,13 @@ export function FakePage({crashData, hasCrashed, onFakeCrash, onViewCode} : Fake
                         ]
                     )}
                     {AboutItem(
-                        "Startup Founder @ thundr.ca",
-                        <Zap className="w-8 h-8 mr-4" />,
+                        "Software Engineer @ PointClickCare",
+                        <Ambulance className="w-8 h-8 mr-4" />,
                         "right",
                         "#881fde",
                         [
-                            { icon: <CircleUserRound className="w-5 h-5 mr-3" />, text: "Revenue Generating" },
-                            { icon: <Building2 className="w-5 h-5 mr-3" />, text: "Venture Capitalist Backed" },
+                            { icon: <CircleUserRound className="w-5 h-5 mr-3" />, text: "Winter 2026" },
+                            // { icon: <Building2 className="w-5 h-5 mr-3" />, text: "Venture Capitalist Backed" },
                         ]
                     )}
                 </div>
