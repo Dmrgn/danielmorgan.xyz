@@ -16,7 +16,7 @@ export default function ReadMe() {
             <li className="list-none flex relative">
                 <Star className="text-yellow-300 absolute -left-6 w-4" />
                 <span>
-                    Professional experience with <strong>React, Next, React Native, Django, Vue, Nuxt</strong>, and just about every other leading web framework.
+                    Professional experience with <strong>React, Next, React Native, Django, Vue, Nuxt</strong>, and several other leading web frameworks.
                 </span>
             </li>   
             <li className="list-none flex relative">
@@ -46,6 +46,7 @@ export default function ReadMe() {
         </ul>
         <h3 className="pt-8">Experience to Highlight:</h3>
         <ul>
+            <li className="list-none flex relative"><Star className="text-yellow-300 absolute -left-6 w-4" />Software Engineer @ PointClickCare, a leading health tech company providing software for care, billing and operations.</li>
             <li className="list-none flex relative"><Star className="text-yellow-300 absolute -left-6 w-4" />Founder of thundr.ca, a tool which automates website creation for construction & home service businesses.</li>
             <li className="list-none flex relative"><Star className="text-yellow-300 absolute -left-6 w-4" />Web & App Developer @ LifeCourseOnline, a tool for empowering caregivers of people with disabilities.</li>
             <li className="list-none flex relative"><Star className="text-yellow-300 absolute -left-6 w-4" />Co-Founder of Infrascan, award-winning software for geospatial & community analysis.</li>
