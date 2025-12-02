@@ -139,21 +139,22 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
                 {currentTab ? (
                     <div className="h-full w-full">
                         {typeof currentTab.content === 'string' ?
-                            <div className='max-h-[92vh] overflow-y-auto'>
+                            <div className='max-h-[92vh] w-full overflow-y-auto'>
                                 <TextAreaHighlighted
                                     value={content[currentTab.id] || currentTab.content}
                                     onChange={(e) => handleContentChange(e.target.value)}
                                     placeholder="Start typing..."
-                                    padding={15}
+                                    padding={0}
                                     language='ts'
                                     rehypePlugins={[
-                                        [rehypePrism, { showLineNumbers: true }]
+                                        [rehypePrism]
                                     ]}
                                     style={{
                                         backgroundColor: "#00000000",
                                         fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
                                         fontWeight: 'bolder',
-                                        fontSize: '14px'
+                                        fontSize: '14px',
+                                        width: "100%"
                                     }}
                                     spellCheck={false}
                                 />
