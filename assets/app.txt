@@ -1,4 +1,5 @@
 // you can run this file by clicking the play button in the top right of the editor
+// or edit it here!
 
 this.bird = {
     x: 50,
@@ -6,26 +7,93 @@ this.bird = {
     velY: 0
 };
 
+this.pipes = [];
+this.frame = 0;
+this.gameOver = false;
+
 // this will run 30 times a second
-this.draw = (ctx) => {
+this.draw = (ctx, isClicked) => {
+    if (this.gameOver) {
+        ctx.fillStyle = "black";
+        ctx.font = "12px sans-serif";
+        ctx.fillText("Game Over - click here", 10, 100);
+
+        if (isClicked) {
+            // reset
+            this.bird.y = 80;
+            this.bird.velY = 0;
+            this.pipes = [];
+            this.frame = 0;
+            this.gameOver = false;
+        }
+        return;
+    }
+
+    // handle jump
+    if (isClicked) {
+        this.bird.velY = -6;
+    }
+
     // handle gravity
     this.bird.velY += 0.5;
     this.bird.velY = Math.min(5, this.bird.velY);
     this.bird.y += this.bird.velY;
 
     // check if we are on the ground
-    if (this.bird.y >= 200) {
-        // bounce
-        this.bird.velY = -10;
+    if (this.bird.y >= 200 - 5) { // ground = bottom
+        this.bird.y = 200 - 5;
+        this.gameOver = true;
     }
+    if (this.bird.y < 0) {
+        this.bird.y = 0;
+        this.bird.velY = 0;
+    }
+
+    // spawn pipes every 90 frames
+    if (this.frame % 90 === 0) {
+        let gap = 60;
+        let topHeight = 40 + Math.random() * 80;
+        this.pipes.push({
+            x: 200,
+            top: topHeight,
+            bottom: topHeight + gap
+        });
+    }
+    this.frame++;
+
+    // move pipes
+    this.pipes.forEach(p => p.x -= 2);
+    this.pipes = this.pipes.filter(p => p.x > -30);
+
+    // collision check
+    this.pipes.forEach(p => {
+        if (
+            this.bird.x + 5 > p.x &&
+            this.bird.x - 5 < p.x + 20 &&
+            (this.bird.y - 5 < p.top || this.bird.y + 5 > p.bottom)
+        ) {
+            this.gameOver = true;
+        }
+    });
 
     // clear the screen
     ctx.fillStyle = "CornflowerBlue";
     ctx.fillRect(0, 0, 200, 200);
+
+    // draw ground
+    ctx.fillStyle = "green";
+    ctx.fillRect(0, 195, 200, 5);
+
+    // draw pipes
+    ctx.fillStyle = "darkgreen";
+    this.pipes.forEach(p => {
+        ctx.fillRect(p.x, 0, 20, p.top);
+        ctx.fillRect(p.x, p.bottom, 20, 200 - p.bottom);
+    });
 
     // draw the bird
     ctx.fillStyle = "yellow";
     ctx.beginPath();
     ctx.arc(this.bird.x, this.bird.y, 5, 0, 2 * Math.PI);
     ctx.fill();
-}
+};

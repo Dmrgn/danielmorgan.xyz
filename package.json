@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "bun ./src/index.html",
-    "build": "bun build ./src/index.html --minify --outdir=dist"
+    "build:css": "bunx tailwindcss -i ./styles/globals.css -o ./dist/tw.css --minify",
+    "build": "bun run build:css && bun build ./src/index.html --outdir=dist"
   },
   "dependencies": {
     "@fontsource/chewy": "^5.2.6",
@@ -22,11 +23,13 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@tsparticles/react": "^3.0.0",
+    "@types/matter-js": "^0.20.0",
     "@uiw/react-textarea-code-editor": "^3.1.1",
     "bun-plugin-tailwind": "^0.0.14",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.542.0",
+    "matter-js": "^0.20.0",
     "motion": "^12.23.12",
     "react": "^19",
     "react-dom": "^19",
@@ -41,6 +44,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.1.13",
     "@tailwindcss/typography": "^0.5.16",
     "@types/bun": "latest",
     "@types/react": "^19",

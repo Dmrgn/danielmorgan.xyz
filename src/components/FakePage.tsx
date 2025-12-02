@@ -112,7 +112,6 @@ export function FakePage({crashData, hasCrashed, onFakeCrash, onViewCode} : Fake
             </div>
 
             <div className="h-[200vh]">
-
             </div>
         </div>
     )

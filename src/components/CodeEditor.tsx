@@ -9,6 +9,11 @@ import { SidebarTrigger } from "./ui/sidebar"
 import type { Tab } from "./CodeEditorPage"
 import { default as TextAreaHighlighted } from '@uiw/react-textarea-code-editor';
 import { useScriptedWindow } from '../lib/useScriptedWindow';
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 interface CodeEditorProps {
     tabs: Tab[]
@@ -46,15 +51,13 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
 
     const scriptedWindow = useRef(null);
     const currentTab = tabs.find((tab) => tab.id === activeTab);
-    let scriptedWindowCleanup = useRef(()=>{});
+    let scriptedWindowCleanup = useRef(() => { });
 
     const startScriptedWindow = () => {
         setIsScriptedWindowOpen(true);
         scriptedWindowCleanup.current = useScriptedWindow(scriptedWindow, currentTab.content as string);
-        console.log("scriptedWindow", scriptedWindowCleanup);
     }
     const onCloseScriptedWindow = () => {
-        console.log("scriptedWindow after", scriptedWindowCleanup);
         scriptedWindowCleanup.current();
         setIsScriptedWindowOpen(false);
     }
@@ -102,10 +105,7 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
                         </div>
                     ))}
                 </div>
-                <div className="flex items-center gap-1 ml-auto px-2">
-                    <Button variant="ghost" size="sm">
-                        <Save className="w-4 h-4" />
-                    </Button>
+                <div className="flex items-center gap-2 ml-auto px-2">
                     {currentTab && typeof currentTab.content === "string" &&
                         (
                             isScriptedWindowOpen ?
@@ -118,6 +118,16 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
 
                         )
                     }
+                    <Tooltip>
+                        <TooltipTrigger>
+                            <Button disabled variant="ghost" size="sm">
+                                <Save className="w-4 h-4" />
+                            </Button>
+                        </TooltipTrigger>
+                        <TooltipContent className='mr-2'>
+                            Saving is disabled in this repository.
+                        </TooltipContent>
+                    </Tooltip>
                     <Button variant="ghost" size="sm">
                         <Settings className="w-4 h-4" />
                     </Button>
@@ -129,23 +139,25 @@ export function CodeEditor({ tabs, activeTab, onTabChange, onTabClose, onContent
                 {currentTab ? (
                     <div className="h-full w-full">
                         {typeof currentTab.content === 'string' ?
-                            <TextAreaHighlighted
-                                value={content[currentTab.id] || currentTab.content}
-                                onChange={(e) => handleContentChange(e.target.value)}
-                                placeholder="Start typing..."
-                                padding={15}
-                                language='ts'
-                                rehypePlugins={[
-                                    [rehypePrism, { showLineNumbers: true }]
-                                ]}
-                                style={{
-                                    backgroundColor: "#00000000",
-                                    fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
-                                    fontWeight: 'bolder',
-                                    fontSize: '14px'
-                                }}
-                                spellCheck={false}
-                            />
+                            <div className='max-h-[92vh] overflow-y-auto'>
+                                <TextAreaHighlighted
+                                    value={content[currentTab.id] || currentTab.content}
+                                    onChange={(e) => handleContentChange(e.target.value)}
+                                    placeholder="Start typing..."
+                                    padding={15}
+                                    language='ts'
+                                    rehypePlugins={[
+                                        [rehypePrism, { showLineNumbers: true }]
+                                    ]}
+                                    style={{
+                                        backgroundColor: "#00000000",
+                                        fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+                                        fontWeight: 'bolder',
+                                        fontSize: '14px'
+                                    }}
+                                    spellCheck={false}
+                                />
+                            </div>
                             : <div className='overflow-y-auto max-h-[92vh] w-full'>
                                 <div className='p-8 prose prose-invert w-full'>
                                     {currentTab.content}
