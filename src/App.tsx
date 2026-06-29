@@ -1,9 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import "./index.css";
 import FakePage from "./components/FakePage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CodeEditor } from "./components/CodeEditor";
 import CodeEditorPage from "./components/CodeEditorPage";
+import { Blog } from "./components/blog/Blog";
+
 
 const crashMessages = [
     {
@@ -38,6 +40,14 @@ export function App() {
     const [crashData, setCrashData] = useState<CrashData>(null);
     const [hasCrashed, setHasCrashed] = useState<boolean>(false);
     const [isViewingCode, setIsViewingCode] = useState<boolean>(false);
+    const [isBlog, setIsBlog] = useState<boolean>(false);
+
+    // hmmm... this is a hacky routing setup...
+    useEffect(()=>{
+        if (window.location.pathname.startsWith("/blog")) {
+            setIsBlog(true);
+        }
+    })
 
     function onFakeCrash() {
         if (hasCrashed) return;
@@ -52,8 +62,9 @@ export function App() {
     return (
         <>
             {
-                !isViewingCode ? <FakePage onViewCode={onViewCode} onFakeCrash={onFakeCrash} crashData={crashData} hasCrashed={hasCrashed}></FakePage>
-                : <CodeEditorPage />
+                isBlog ? <Blog />
+                : (!isViewingCode ? <FakePage onViewCode={onViewCode} onFakeCrash={onFakeCrash} crashData={crashData} hasCrashed={hasCrashed}></FakePage>
+                : <CodeEditorPage /> )
             }
         </>
     );

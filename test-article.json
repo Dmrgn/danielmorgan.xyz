@@ -1,0 +1,7 @@
+{
+    "title": "Test",
+    "date": "2026-06-29T16:05:19.499Z",
+    "body": "This is some test content!\n\n# This is a heading!\n\n![Here is an image](https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1xw:0.74975xh;0,0.190xh&resize=640:*)\n\n[Here is a link!](https://thundr.ca).",
+    "image": "https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1xw:0.74975xh;0,0.190xh&resize=640:*",
+    "slug": "test-article"
+}

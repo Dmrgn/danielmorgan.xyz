@@ -3,3 +3,5 @@
 I've been having some issues while developing this project! Maybe you can help me out!
 
 [danielmorgan.xyz](https://danielmorgan.xyz)
+
+It also includes a blog!

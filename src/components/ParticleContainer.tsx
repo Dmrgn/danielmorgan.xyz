@@ -38,7 +38,7 @@ export function ParticleContainer() {
         particlesLoaded={particlesLoaded}
         className="absolute -z-10"
         options={{
-            background: { color: { value: "#0d47a1" } },
+            background: { color: { value: "#5e35b1" } },
             detectRetina: true,
             fpsLimit: 120,
 
