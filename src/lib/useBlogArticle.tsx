@@ -27,21 +27,16 @@ let articleLoadingPromise: Promise<Article | null> | null = null;
 let manifestLoadingPromise: Promise<BlogManifest | null> | null = null;
 
 export async function useBlogArticle(): Promise<Article | null> {
-    const route = window.location.pathname;
-    if (!route.startsWith("/blog")) {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (!urlParams.get("blog")) {
         return null;
     }
 
     // use existing promise if it exists
     if (articleLoadingPromise === null) {
         articleLoadingPromise = (async () => {
-            const articleSlugParts = route.split("/");
-            if (articleSlugParts.length != 3) {
-                console.log("invalid article slug parts:", articleSlugParts);
-                return null;
-            }
-            const articleSlug = articleSlugParts[2];
-
+            console.log( urlParams.get("blog"));
+            const articleSlug = urlParams.get("blog");
             // then load the article
             if (currentArticle === null || currentArticle.slug != articleSlug) {
                 try {

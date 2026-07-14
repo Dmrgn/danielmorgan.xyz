@@ -18,7 +18,8 @@ export function Blog({}: BlogProps) {
         (async ()=>{
             const articleResult = await useBlogArticle();
             const manifestResult = await useBlogManifest();
-            if (articleResult === null && window.location.pathname !== "/blog") {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (articleResult === null && urlParams.get("blog") !== "") {
                 setError("I can't find that article.");
             }
             if (manifestResult === null) {
@@ -29,8 +30,6 @@ export function Blog({}: BlogProps) {
             setManifest(manifestResult);
         })();
     })
-
-    console.log("here", article, manifest);
 
     return (
         <>

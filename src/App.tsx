@@ -43,8 +43,9 @@ export function App() {
     const [isBlog, setIsBlog] = useState<boolean>(false);
 
     // hmmm... this is a hacky routing setup...
+    const urlParams = new URLSearchParams(window.location.search);
     useEffect(()=>{
-        if (window.location.pathname.startsWith("/blog")) {
+        if (urlParams.get("blog") !== null) {
             setIsBlog(true);
         }
     })

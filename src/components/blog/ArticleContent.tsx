@@ -16,7 +16,8 @@ export function ArticleContent({}: ArticleProps) {
         (async ()=>{
             const articleResult = await useBlogArticle();
             const manifestResult = await useBlogManifest();
-            if (articleResult === null && window.location.pathname !== "/blog") {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (articleResult === null && urlParams.get("blog") !== "") {
                 setError("I can't find that article.");
             }
             if (manifestResult === null) {
