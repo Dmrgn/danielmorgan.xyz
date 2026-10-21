@@ -145,7 +145,7 @@
     }
 
     body {
-        @apply grid place-items-center min-w-sm min-h-screen relative m-0 bg-background text-foreground;
+        @apply grid place-items-center min-w-0 min-h-screen relative m-0 bg-background text-foreground;
     }
 }
 

@@ -30,8 +30,8 @@ export function ArticleContent({}: ArticleProps) {
     })
 
     return (
-        <div className="prose absolute top-0 left-0 min-w-[98vw] min-h-[90vh] flex justify-center mt-16">
-            <div className="bg-white flex justify-start flex-col max-w-3xl w-full rounded-md p-16 mb-16">
+        <main className="absolute inset-x-0 top-0 min-h-[90vh] flex justify-center px-4 mt-6 sm:mt-16">
+            <article className="prose bg-white min-w-0 max-w-3xl w-full rounded-md p-6 sm:p-10 md:p-16 mb-16 [overflow-wrap:anywhere] prose-pre:max-w-full prose-pre:overflow-x-auto">
                 <h1 className="mb-0">{article?.title}</h1>
                 <div className="flex">
                     <img className="w-12 h-12 object-contain" src={meUrl} alt="A headshot of Daniel Morgan" />
@@ -43,7 +43,7 @@ export function ArticleContent({}: ArticleProps) {
                 <img className="mt-0 mb-0 rounded-md" src={article?.image} alt={article?.title} />
                 <hr />
                 <Markdown>{article?.body}</Markdown>
-            </div>
-        </div>
+            </article>
+        </main>
     )
 }
